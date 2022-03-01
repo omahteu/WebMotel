@@ -9,12 +9,6 @@ $("#guardara").click(function(){
 	)
 })
 
-function gera_id(){
-	var size = 3
-	var randomized = Math.ceil(Math.random() * Math.pow(10,size))
-	return randomized
-}
-
 function registroVeiculo(){
 
 	var quarto =  $("#numquarto").text()
@@ -23,66 +17,64 @@ function registroVeiculo(){
     var placa = $("#placa").val()
 
 	var patio = {
-		operacao: gera_id(),
 		quarto: quarto,
 		veiculo: veiculo,
 		modelo: modelo,
 		placa: placa
     }
 
-	if(localStorage.getItem('garagem') === null){
-		var patios = [];
-		patios.push(patio);
-		localStorage.setItem('garagem', JSON.stringify(patios));
-	} else {
-		var patios = JSON.parse(localStorage.getItem('garagem'));
-		patios.push(patio);
-		localStorage.setItem('garagem', JSON.stringify(patios));
-	}
+	// Requisição POST
+	$.post("http://127.0.0.1:8000/comanda/", patio, function(msg){
+
+		// Exibe os Produtos
+		mostraProduto();
+	})
 
 	document.getElementById('formLogin').reset();
-
-	mostraVeiculo();
-
 }
 
 function removeVeiculo(operacao){
-	var patio = JSON.parse(localStorage.getItem('garagem'))
 
-	 for(var i = 0 ; i < patio.length; i++){
-		if(patio[i].operacao == operacao){
-			patio.splice(i, 1);
+	$.ajax({
+		url: "http://127.0.0.1:8000/patio/" + operacao,
+		method: "DELETE",
+		dataType: "json",
+		success: function(data){
+			alert('Produto Excluído!')
+			mostraProduto();
 		}
-	}
-
-	localStorage.setItem('garagem', JSON.stringify(patio));
-
-	mostraVeiculo();
+	})
 }
 
 function mostraVeiculo(){
 
-	var nuQuarto =  $("#numquarto").text()
-	var dados_garagem = JSON.parse(localStorage.getItem('garagem'))
-	var patio = document.getElementById('garagem')
-	patio.innerHTML = ''
+	// Requisição GET
+	$.get("http://127.0.0.1:8000/patio/", function(retorno){
 
-	var dados = dados_garagem.filter(quartos => quartos.quarto == nuQuarto)
+		// Parâmetro e Instância de Tabela
+		var nQuarto =  $("#numquarto").text()
+		var prateleira = document.getElementById('lprodutos');
+		prateleira.innerHTML = '';
 
-	for(var i = 0; i < dados.length; i++){
+		// Filtro
+		var dados = retorno.filter(quartos => quartos.quarto == nQuarto)
 
-		var quarto =  dados[i].quarto
-		var veiculo =  dados[i].veiculo
-		var modelo = dados[i].modelo
-		var placa = dados[i].placa
-		var operacao = dados[i].operacao
+		// Percorrendo o Array e Formantando uma Tabela
+		for(var i = 0; i < dados.length; i++){
 
-		patio.innerHTML += '<tr><td>'+ quarto + '</td>'+
-		 						'<td>'+ veiculo + '</td>' +
-								'<td>'+ modelo + '</td>' +
-								'<td>'+ placa + '</td>' +
-								'<td hidden>'+ operacao + '</td>'+
-		 						'<td><button onclick="removeVeiculo('+ operacao +')" class="btn btn-danger">Remover</button></td>'+
-		 					'</tr>';
-	}
+			var id = dados[i].id
+			var quarto =  dados[i].quarto
+			var veiculo = dados[i].veiculo
+			var modelo = dados[i].modelo
+			var placa = dados[i].placa
+	
+			prateleira.innerHTML += '<tr>'+
+										'<td>'+ quarto + '</td>' +
+										'<td>'+ veiculo + '</td>' +
+										'<td>'+ modelo + '</td>' +
+										'<td>'+ placa + '</td>' +
+										 '<td><button onclick="removeProduto('+ id +')" class="btn btn-danger">Remover</button></td>'+
+									'</tr>';
+		}
+	})
 }

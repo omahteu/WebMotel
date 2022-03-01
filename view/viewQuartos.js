@@ -113,23 +113,23 @@ $("[id=mon]").mousedown(function(){
 
 function backupInfos(instancia){
 
-	// Recuperação da Chave e do LocalStorage
-	// var IDCodigo = $(codigosIDs).get(-1);
-	var dados_particao = JSON.parse(localStorage.getItem(instancia))
-	
-	
-	// console.log(dados_particao)
+	$.get("http://127.0.0.1:8000/header/", function(retorno){
 
-	var dados_quarto = JSON.parse(localStorage.getItem(dados_particao))
-	
 
-	// Exibição dos Dados Recuperados
-	try {
+		var nQuarto =  $("#numquarto").text()
+
+		try{
+			var dados = retorno.filter(quartos => quartos.quarto == nQuarto)
+
+			for(var i = 0; i < dados.length; i++){
+	
+				$("#numquarto").text(dados[i].quanrto)
+				$("#entrada").text(dados[i].datahora)
+				$("#valor-quarto").text(dados[i].valor)
 		
-		$("#numquarto").text(dados_quarto[0].quarto)
-		$("#entrada").text(dados_quarto[0].datahora)
-		$("#valor-quarto").text(dados_quarto[0].valor)
-	} catch (error) {
-		//
-	}
+			}
+		} catch (error) {
+			localStorage.setItem('produtos', JSON.stringify([]))
+		}
+	})
 }

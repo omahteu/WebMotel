@@ -39,9 +39,9 @@
                 <form>
                   <div class="single-form form-default d-flex">
                     <div class="form-input form">
-                      <input type="text" placeholder="Código de Desconto">
+                      <input type="text" id="codigoDesconto" placeholder="Código de Desconto">
                     </div>
-                    <button class="main-btn primary-btn">Aplicar</button>
+                    <button type="button" class="main-btn primary-btn" id="desconto">Aplicar</button>
                   </div>
                 </form>
               </div>
@@ -67,7 +67,7 @@
                 </div>
                 <div class="single-total">
                   <p class="value">Descontos:</p>
-                  <p class="price">R$0</p>
+                  <p class="price">R$ <span id="valorDesconto">0</span></p>
                 </div>
                 <div class="single-total total-payable">
                   <p class="value">Total:</p>

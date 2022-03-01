@@ -1,5 +1,3 @@
-export var codigosIDs = []
-
 export function index(){
 
     // Data e Hora
@@ -15,38 +13,16 @@ export function index(){
     var quarto = $("#numquarto").text()
 
     // Agrupando Dados
-    var dado = {
+    var dados = {
         datahora: datahora,
         valor: valor,
         quarto: quarto
     }
 
-    // ID
-    var codigoID = gera_id()
-    codigosIDs.push(codigoID)
 
-    
-    if(localStorage.getItem('quarto' + quarto) === null){
-        localStorage.setItem('quarto' + quarto, codigoID);
+
+    $.post("http://127.0.0.1:8000/header/", dados, function(){
         
-    } else (
-        console.log('já exite')
-    )
+    })
 
-    // Salvar em LocalStorage
-    if(localStorage.getItem(codigoID) === null){
-		var dados = [];
-		dados.push(dado);
-		localStorage.setItem(codigoID, JSON.stringify(dados));
-	} else {
-		var dados = JSON.parse(localStorage.getItem(codigoID));
-		dados.push(dado);
-		localStorage.setItem(codigoID, JSON.stringify(dados));
-	}
-}
-
-function gera_id(){
-	var size = 3
-	var randomized = Math.ceil(Math.random() * Math.pow(10,size))
-	return randomized
 }

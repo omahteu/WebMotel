@@ -25,7 +25,7 @@ function registroProduto(){
     var datahora = String(hora) + ':' + String(minutos)
 	var valor = $("#valor-quarto").text()
     
-    // Objeto com Parãmtros
+    // Objetos
 	var produto = {
 		quarto: quarto,
 		descricao: descricao,
@@ -36,43 +36,45 @@ function registroProduto(){
 		valor_quarto: valor
 	}
 
+	// Requisição POST
 	$.post("http://127.0.0.1:8000/comanda/", produto, function(msg){
-        //alert("Produto Registrado!")
 
-        document.getElementById('formPostProduto').reset()
+		// Exibe os Produtos
+		mostraProduto();
     })
 
 	// Limpa os Campos
 	document.getElementById('produtos').reset();
-
-	// Exibe os Produtos
-	mostraProduto();
 }
 
 function removeProduto(operacao){
-	var patio = JSON.parse(localStorage.getItem('produtos'))
 
-	 for(var i = 0 ; i < patio.length; i++){
-		if(patio[i].operacao == operacao){
-			patio.splice(i, 1);
+	// Requisição DELETE
+	$.ajax({
+		url: "http://127.0.0.1:8000/comanda/" + operacao,
+		method: 'DELETE',
+		dataType: 'json',
+		success: function(data){
+			alert('Produto Excluído!')
+			mostraProduto();
 		}
-	}
-
-	localStorage.setItem('produtos', JSON.stringify(patio));
-
-	mostraProduto();
+	})
 }
 
 function mostraProduto(){
 
+	// Requisição GET
 	$.get("http://127.0.0.1:8000/comanda/", function(retorno){
 
+		// Parâmetro e Instância de Tabela
 		var nQuarto =  $("#numquarto").text()
 		var prateleira = document.getElementById('lprodutos');
 		prateleira.innerHTML = '';
 
+		// Filtro
 		var dados = retorno.filter(quartos => quartos.quarto == nQuarto)
 
+		// Percorrendo o Array e Formantando uma Tabela
 		for(var i = 0; i < dados.length; i++){
 
 			var id = dados[i].id

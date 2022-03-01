@@ -1,7 +1,3 @@
-
-
-// Consegui somar valores
-
 $(document).ready(function(){
 	informacaoes()
 })
@@ -9,67 +5,77 @@ $(document).ready(function(){
 function informacaoes(){
 
 	var numero_quarto = JSON.parse(sessionStorage.getItem('Encerrando'))
-    
-    var dados_particao = JSON.parse(localStorage.getItem('quarto' + numero_quarto))
-    var dados_quarto = JSON.parse(localStorage.getItem(dados_particao))
 
-    var dds = JSON.parse(localStorage.getItem('produtos'))
-    var prateleira = document.getElementById('itensComprados');
-	prateleira.innerHTML = '';
+	$.get("http://127.0.0.1:8000/comanda/", function(retorno){
 
-	try {
-		var dados = dds.filter(quartos => quartos.quarto == dados_quarto[0].quarto)
+	    var prateleira = document.getElementById('itensComprados');
+		prateleira.innerHTML = '';
 
-		for(var i = 0; i < dados.length; i++){
+		try {
+			var dados = retorno.filter(quartos => quartos.quarto == numero_quarto)
 
-			var descricao =  dados[i].descricao
-			var quantidade =  dados[i].quantidade
-			var valor_total = dados[i].valor_total
-			var valor_unitario = dados[i].valor_unitario
-
+			for(var i = 0; i < dados.length; i++){
 	
-			prateleira.innerHTML += '<tr>'+
-										'<td>'+
-											'<div class="product-cart d-flex">'+
-												'<div class="product-content media-body">'+
-													'<h5 class="title">' + descricao + '</h5>'+
-													'<span>Unidade Custa R$ ' + valor_unitario + '</span>'+
+				//var quarto = dados[i].quarto
+				var descricao =  dados[i].descricao
+				var quantidade =  dados[i].quantidade
+				var valor_total = dados[i].valor_total
+				var valor_unitario = dados[i].valor_unitario
+				//var datahora = dados[i].datahora
+				var valor_quarto = dados[i].valor_quarto
+
+
+				prateleira.innerHTML += '<tr>'+
+											'<td>'+
+												'<div class="product-cart d-flex">'+
+													'<div class="product-content media-body">'+
+														'<h5 class="title">' + descricao + '</h5>'+
+														'<span>Unidade Custa R$ ' + valor_unitario + '</span>'+
+													'</div>'+
 												'</div>'+
-											'</div>'+
-										'</td>'+
-										'<td>'+
-											'<p>' + quantidade + '</p>'+
-										'</td>'+
-										'<td>'+
-											'<p class="price" id="total">' + valor_total + '</p>'+
-										'</td>'+
-									'</tr>';
+											'</td>'+
+											'<td>'+
+												'<p>' + quantidade + '</p>'+
+											'</td>'+
+											'<td>'+
+												'<p class="price" id="total">' + valor_total + '</p>'+
+											'</td>'+
+										'</tr>';
+			}
+		} catch (error) {
+			localStorage.setItem('produtos', JSON.stringify([]))
 		}
-	} catch (error) {
-		localStorage.setItem('produtos', JSON.stringify([]))
-	}
 
+		var totais = $("[id=total]").text()
+
+		var arraytotal = totais.split('R$')
 	
-
-	var totais = $("[id=total]").text()
-
-	var arraytotal = totais.split('R$')
-
-	var arraySemVazios = arraytotal.filter(function (i) {
-		return i;
-	});
+		var arraySemVazios = arraytotal.filter(function (i) {
+			return i;
+		});
+		
+		var sum = 0
 	
+		for(var a = 0; a < arraySemVazios.length; a++){
+			sum += parseFloat(arraySemVazios[a])
+		}
 
-	var sum = 0
+		$("#valorItens").text(sum)
+		$("#valorQuarto").text(valor_quarto)
+		
+		var ttgeral = Number(valor_quarto) + Number(sum)
 
-	for(var a = 0; a < arraySemVazios.length; a++){
-		sum += parseFloat(arraySemVazios[a])
-	}
+		$("#totalGeral").text(ttgeral)
 
-	$("#valorQuarto").text(dados_quarto[0].valor)
-	$("#valorItens").text(sum)
-
-	var ttgeral = Number(dados_quarto[0].valor) + Number(sum)
-
-	$("#totalGeral").text(ttgeral)
+		$("#desconto").click(function(){
+			
+			var codigoDeconto = $("#codigoDesconto").val()
+			$("#totalGeral").text(ttgeral = ttgeral - codigoDeconto)
+			$("#codigoDesconto").val('')
+			var descont = document.getElementById('codigoDesconto')
+			descont.disabled = true
+			$("#valorDesconto").text(codigoDeconto)
+			
+		})
+	})
 }
