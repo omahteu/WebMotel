@@ -4,6 +4,7 @@ import { index } from "../tags/particao.js"
 import { start } from "../paginas_js/crono.js"
 import { start2 } from "../paginas_js/crono.js"
 import { start3 } from "../paginas_js/crono.js"
+import { start4 } from "../paginas_js/crono.js"
 
 
 $(".locado").click(function(){
@@ -39,6 +40,7 @@ $(".locado").click(function(){
                 var flags = modos.slice(9, 12)
                 locado(quarto, rota,  flags[0], flags[1], flags[2])
                 index()
+                start4()
                 break
         }
     }

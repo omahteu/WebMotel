@@ -1271,3 +1271,14 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
 #email, #fantasia, #endereco, #telefone, #telefone2, #telefone3 {
   font-size: 18px;
 }
+
+#contador {
+  display: inline-flex;
+}
+
+#hour, #minute, #second, 
+#hour2, #minute2, #second2, 
+#hour3, #minute3, #second3,
+#hour4, #minute4, #second4 {
+  font-size: 22px;
+}
