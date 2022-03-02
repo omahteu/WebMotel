@@ -1,4 +1,6 @@
 import { precos } from "../boxes/box.js";
+import { timer } from "../paginas_js/crono.js"
+
 
 export function locado(q, t,  x, y, z) {
     $("#quarto" + q).css({
@@ -47,4 +49,8 @@ export function locado(q, t,  x, y, z) {
     $("#entrada").text(String(hora) + ':' + String(minutos) + 'h')
     $("#imagemQuarto" + q).css('border', '2px solid rgb(255, 0, 0)')
     $("#imagemQuarto" + q).css('box-shadow', 'inset 0 0 1em rgb(255, 0, 0), 0 0 1em #000')
+
+    timer(q)
 }
+
+
