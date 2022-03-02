@@ -4,7 +4,7 @@ $(document).ready(function(){
 
 function informacaoes(){
 
-	var numero_quarto = JSON.parse(sessionStorage.getItem('Encerrando'))
+	var numero_quarto = JSON.parse(sessionStorage.getItem('quarto'))
 
 	$.get("http://127.0.0.1:8000/comanda/", function(retorno){
 

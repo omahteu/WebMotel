@@ -12,3 +12,37 @@ export var precos = [
     {pernoiteVentilador: '90'},
     {pernoiteAr: '115'}
 ]
+
+export function dataAtual(){
+    const data = new Date()
+    const dia = String(data.getDate()).padStart(2, '0')
+    const mes = String(data.getMonth() + 1).padStart(2, '0')
+    const ano = String(data.getFullYear())
+    const hoje = `${dia}/${mes}/${ano}`
+    return hoje
+}
+
+export function rg(){
+	var size = 3
+	var randomized = Math.ceil(Math.random() * Math.pow(10,size))
+	return randomized
+}
+
+export function horaSaida(){
+    const data = new Date()
+    const hora = String(data.getHours())
+    const minutos = String(data.getMinutes())
+    const agora = `${hora}:${minutos}`
+    return agora
+}
+
+export function liviaExclui(identificador){
+    $.ajax({
+		url: "http://127.0.0.1:8000/comanda/" + identificador,
+		method: 'DELETE',
+		dataType: 'json',
+		success: function(data){
+			console.log('Produtos Excluídos!')
+		}
+	})
+}

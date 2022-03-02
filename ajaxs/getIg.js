@@ -17,9 +17,7 @@ $(document).ready(function(){
     const dados = new XMLHttpRequest()
     dados.onload = function(){
         
-
         var resultado = JSON.parse(dados.responseText)
-        console.log(resultado[0])
 
         var endereco = resultado[0].endereco + ' ' + ' ' + resultado[0].numero + ' - ' + resultado[0].bairro + ' , ' + 
         resultado[0].cidade
