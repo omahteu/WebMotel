@@ -97,10 +97,21 @@ function zerarPatio(){
 
         }
 
+        
+        
+
         sessionStorage.clear()
 
         console.log('sessionStorage apagado')
 
-        window.close()
+        setTimeout(function() {window.close()}, 4000);
     })
+}
+
+function final(){
+    sessionStorage.clear()
+
+    console.log('apagado')
+
+    window.close()
 }
