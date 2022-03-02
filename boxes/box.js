@@ -36,13 +36,13 @@ export function horaSaida(){
     return agora
 }
 
-export function liviaExclui(identificador){
+export function liviaExclui(url, identificador){
     $.ajax({
-		url: "http://127.0.0.1:8000/comanda/" + identificador,
+		url: url + identificador,
 		method: 'DELETE',
 		dataType: 'json',
 		success: function(data){
-			console.log('Produtos Excluídos!')
+			console.log('excluídos!')
 		}
 	})
 }

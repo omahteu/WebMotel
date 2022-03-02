@@ -7,13 +7,21 @@ $("#finalizar").click(function(){
     
     zerarComanda()
 
-    // zerarHeader()
+    console.log('proximo')
 
-    // zerarPatio()
+    zerarHeader()
 
-    // sessionStorage.clear()
+    console.log('proximo')
 
-    // window.close()
+    zerarPatio()
+
+    console.log('proximo')
+
+    //sessionStorage.clear()
+
+    //console.log('proximo')
+
+    //window.close()
 
 })
 
@@ -31,10 +39,11 @@ function registroOcupacao(quarto, entrada){
     }
 
     $.post("http://127.0.0.1:8000/ocupacoes/", box, function(){})
+
 }
 
 function zerarComanda(){
-    $.get("http://127.0.0.1:8000/comanda/", function(retorno){
+   $.get("http://127.0.0.1:8000/comanda/", function(retorno){
 
         var numero_quarto = JSON.parse(sessionStorage.getItem('quarto'))
 
@@ -44,15 +53,14 @@ function zerarComanda(){
 
             var identificador = dados[i].id
 
-            liviaExclui(identificador)
+            liviaExclui("http://127.0.0.1:8000/comanda/", identificador)
 
         }
-
-        console.log('Comanda Zerada')
     })
 }
 
 function zerarHeader(){
+          
     $.get("http://127.0.0.1:8000/header/", function(retorno){
 
         var numero_quarto = JSON.parse(sessionStorage.getItem('quarto'))
@@ -65,7 +73,7 @@ function zerarHeader(){
             var quarto = dados[i].quarto
             var entrada = dados[i].datahora
 
-            liviaExclui(identificador)
+            liviaExclui("http://127.0.0.1:8000/header/", identificador)
 
         }
 
@@ -85,8 +93,14 @@ function zerarPatio(){
 
             var identificador = dados[i].id
 
-            liviaExclui(identificador)
+            liviaExclui("http://127.0.0.1:8000/patio/", identificador)
 
         }
+
+        sessionStorage.clear()
+
+        console.log('sessionStorage apagado')
+
+        window.close()
     })
 }
