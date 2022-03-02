@@ -16,13 +16,6 @@ $("#finalizar").click(function(){
     zerarPatio()
 
     console.log('proximo')
-
-    //sessionStorage.clear()
-
-    //console.log('proximo')
-
-    //window.close()
-
 })
 
 function registroOcupacao(quarto, entrada){
@@ -97,21 +90,10 @@ function zerarPatio(){
 
         }
 
-        
-        
-
         sessionStorage.clear()
 
         console.log('sessionStorage apagado')
 
         setTimeout(function() {window.close()}, 4000);
     })
-}
-
-function final(){
-    sessionStorage.clear()
-
-    console.log('apagado')
-
-    window.close()
 }
