@@ -7,7 +7,12 @@ export function locado(q, t,  x, y, z) {
         "background-color": "#FF0000",
         "opacity": 0.5})
     
-    $("#tempo").css('margin-top', '-30px')
+    $("[name=form_main" + q + "]").css({
+        'margin-bottom': '-60px',
+        'padding-top': '50px'
+    })
+
+    $("#tipo1").css('font-size', '25px')
 
     $("[id=botaoq" + q + "]").css('visibility', 'hidden')
 
