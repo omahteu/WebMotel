@@ -1,36 +1,25 @@
 $(document).ready(function(){
 
-    /*$.get("http://127.0.0.1:8000/igs/", function(resultado){
+    $.get("https://defmoteapi.herokuapp.com/igs/", function(resultado){
 
-        var endereco = resultado[0].endereco + ' ' + ' ' + resultado[0].numero + ' - ' + resultado[0].bairro + ' , ' + 
-        resultado[0].cidade
+        var endereco = `${resultado[0].endereco} ${resultado[0].numero} - ${resultado[0].bairro}, ${resultado[0].cidade}`
 
-        // COLOCAR CNPJ E EMAIL JUNTOS
+        var cnpjBruto = String(resultado[0].cnpj)
+        var cnpj1 = cnpjBruto.slice(0, 2)
+        var cnpj2 = cnpjBruto.slice(2, 5)
+        var cnpj3 = cnpjBruto.slice(5, 8)
+        var cnpj4 = cnpjBruto.slice(8, 12)
+        var cnpj5 = cnpjBruto.slice(12, 14)
 
-        $("#email").text(resultado[0].cnpj)
-        $("#endereco").text(endereco)
-        $("#telefone").text(resultado[0].telefone)
-        $("#telefone2").text(resultado[0].telefone2)
-        $("#telefone3").text(resultado[0].telefone3)
-    })*/
-
-    const dados = new XMLHttpRequest()
-    dados.onload = function(){
-        
-        var resultado = JSON.parse(dados.responseText)
-
-        var endereco = resultado[0].endereco + ' ' + ' ' + resultado[0].numero + ' - ' + resultado[0].bairro + ' , ' + 
-        resultado[0].cidade
-
+        var telefoneBruto1 = resultado[0].telefone
+        var telefoneBruto2 = resultado[0].telefone2
+        var telefoneBruto3 = resultado[0].telefone3
 
         $("#email").text(resultado[0].fantasia)
+        $("#cnpj").text(`${cnpj1}.${cnpj2}.${cnpj3}/${cnpj4}-${cnpj5}`)
         $("#endereco").text(endereco)
-        $("#telefone").text(resultado[0].telefone)
-        $("#telefone2").text(resultado[0].telefone2)
-        $("#telefone3").text(resultado[0].telefone3)
-    }
-
-    dados.open("GET", "https://defmoteapi.herokuapp.com/igs/", true)
-    dados.send()
+        $("#telefone").text(`(${telefoneBruto1.slice(0, 2)}) ${telefoneBruto1.slice(2)}`)
+        $("#telefone2").text(`(${telefoneBruto2.slice(0, 2)}) ${telefoneBruto2.slice(2)}`)
+        $("#telefone3").text(`(${telefoneBruto3.slice(0, 2)}) ${telefoneBruto3.slice(2)}`)
+    })
 })
-
