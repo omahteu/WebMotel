@@ -7,7 +7,7 @@ $("#salvar").click(function(){
 	if(tipos.includes(tipo)){
 		registroProduto()
 	} else (
-		alert('Selecione um quarto em modo Pernoite ou Locação!')
+		alert('Selecione uma tabela!')
 	)
 })
 
@@ -75,23 +75,23 @@ function mostraProduto(){
 		var dados = retorno.filter(quartos => quartos.quarto == nQuarto)
 
 		// Percorrendo o Array e Formantando uma Tabela
-		for(var i = 0; i < dados.length; i++){
+		dados.forEach(function(resultado){
 
-			var id = dados[i].id
-			var quarto =  dados[i].quarto
-			var descricao = dados[i].descricao
-			var quantidade = dados[i].quantidade
-			var valorUnitario = dados[i].valor_unitario
-			var valorTotal = dados[i].valor_total
-	
+			var id = resultado.id
+			var quarto = resultado.quarto
+			var descricao = resultado.descricao
+			var quantidade = resultado.quantidade
+			var valorUnitario = resultado.valor_unitario
+			var valorTotal = resultado.valor_total
+
 			prateleira.innerHTML += '<tr>'+
 										'<td>'+ quarto + '</td>' +
 										'<td>'+ descricao + '</td>' +
 										'<td>'+ quantidade + '</td>' +
 										'<td>'+ valorUnitario + '</td>' +
 										'<td>'+ valorTotal + '</td>' +
-										 '<td><button onclick="removeProduto('+ id +')" class="btn btn-danger">Remover</button></td>'+
+										'<td><button onclick="removeProduto('+ id +')" class="btn btn-danger">Remover</button></td>'+
 									'</tr>';
-		}
+		})
 	})
 }

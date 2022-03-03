@@ -1,4 +1,4 @@
-import { precos } from "../boxes/box.js";
+//import { precos } from "../boxes/box.js";
 import { timer } from "../paginas_js/crono.js"
 
 
@@ -41,10 +41,24 @@ export function locado(q, t,  x, y, z) {
 
     switch (tipoQuarto){
         case 'AR':
-            $("#valor-quarto").text(precos[1].locacaoAr)
+
+            $.get("https://defmoteapi.herokuapp.com/quartos/", function(retorno){
+                var dados = retorno.filter(quartos => quartos.tipo_quarto == 'AR')
+                dados.forEach(function(resultado){
+                    $("#valor-quarto").text(resultado.valor_locacao)
+                })
+            })
+
             break
         case 'VENTILADOR':
-            $("#valor-quarto").text(precos[0].locacaoVentilador)
+
+            $.get("https://defmoteapi.herokuapp.com/quartos/", function(retorno){
+                var dados = retorno.filter(quartos => quartos.tipo_quarto == 'VENTILADOR')
+                dados.forEach(function(resultado){
+                    $("#valor-quarto").text(resultado.valor_locacao)
+                })
+            })
+
             break
     }
 

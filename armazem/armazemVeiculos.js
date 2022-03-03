@@ -60,21 +60,21 @@ function mostraVeiculo(){
 		var dados = retorno.filter(quartos => quartos.quarto == nQuarto)
 
 		// Percorrendo o Array e Formantando uma Tabela
-		for(var i = 0; i < dados.length; i++){
+		dados.forEach(function(resultado){
 
-			var id = dados[i].id
-			var quarto =  dados[i].quarto
-			var veiculo = dados[i].veiculo
-			var modelo = dados[i].modelo
-			var placa = dados[i].placa
-	
+			var id = resultado.id
+			var quarto =  resultado.quarto
+			var veiculo = resultado.veiculo
+			var modelo = resultado.modelo
+			var placa = resultado.placa
+
 			prateleira.innerHTML += '<tr>'+
 										'<td>'+ quarto + '</td>' +
 										'<td>'+ veiculo + '</td>' +
 										'<td>'+ modelo + '</td>' +
 										'<td>'+ placa + '</td>' +
-										 '<td><button onclick="removeProduto('+ id +')" class="btn btn-danger">Remover</button></td>'+
+										'<td><button onclick="removeProduto('+ id +')" class="btn btn-danger">Remover</button></td>'+
 									'</tr>';
-		}
+		})
 	})
 }

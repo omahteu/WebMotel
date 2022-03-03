@@ -1,7 +1,5 @@
 $(".tarja").click(function(){
     var botao = $(this).text()
-    // console.log(btn)
-
 
     switch (botao) {
         case 'Quartos':
@@ -19,14 +17,4 @@ $(".tarja").click(function(){
         default:
             break;
     }
-
-
-
-
-
-
-
-
-
-
 })
