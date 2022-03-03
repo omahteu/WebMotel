@@ -1,5 +1,5 @@
 export function dadosOcupacoes() {
-    $.get("https://drf-motel.herokuapp.com/ocupacoes/", function(resultado){
+    $.get("https://defmoteapi.herokuapp.com/ocupacoes/", function(resultado){
 
         var tabela = document.getElementById('tabelaOcupacoes')
         tabela.innerHTML = ''

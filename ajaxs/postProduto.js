@@ -26,7 +26,7 @@ $("#salvar").click(function(){
             data: dataAtual
         }
 
-    $.post("https://drf-motel.herokuapp.com/produtos/", dados, function(msg){
+    $.post("https://defmoteapi.herokuapp.com/produtos/", dados, function(msg){
         alert("Produto Registrado!")
 
         document.getElementById('formPostProduto').reset()

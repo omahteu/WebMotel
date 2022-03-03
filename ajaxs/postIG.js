@@ -24,7 +24,7 @@ $("#salvarIG").click(function(){
         telefone3: telefone3
     }
 
-    $.post("https://drf-motel.herokuapp.com/igs/", dados, function(msg){
+    $.post("https://defmoteapi.herokuapp.com/igs/", dados, function(msg){
         alert("Informações Registradas!")
 
         document.getElementById('formPostIG').reset()

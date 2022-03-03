@@ -21,7 +21,7 @@ export function index(){
 
 
 
-    $.post("http://127.0.0.1:8000/header/", dados, function(){
+    $.post("https://defmoteapi.herokuapp.com/header/", dados, function(){
         
     })
 

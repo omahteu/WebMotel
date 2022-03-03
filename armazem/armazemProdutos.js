@@ -37,7 +37,7 @@ function registroProduto(){
 	}
 
 	// Requisição POST
-	$.post("http://127.0.0.1:8000/comanda/", produto, function(msg){
+	$.post("https://defmoteapi.herokuapp.com/comanda/", produto, function(msg){
 
 		// Exibe os Produtos
 		mostraProduto();
@@ -51,7 +51,7 @@ function removeProduto(operacao){
 
 	// Requisição DELETE
 	$.ajax({
-		url: "http://127.0.0.1:8000/comanda/" + operacao,
+		url: "https://defmoteapi.herokuapp.com/comanda/" + operacao,
 		method: 'DELETE',
 		dataType: 'json',
 		success: function(data){
@@ -64,7 +64,7 @@ function removeProduto(operacao){
 function mostraProduto(){
 
 	// Requisição GET
-	$.get("http://127.0.0.1:8000/comanda/", function(retorno){
+	$.get("https://defmoteapi.herokuapp.com/comanda/", function(retorno){
 
 		// Parâmetro e Instância de Tabela
 		var nQuarto =  $("#numquarto").text()

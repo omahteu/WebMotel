@@ -1,5 +1,5 @@
 export function dadosQuartos() {
-    $.get("https://drf-motel.herokuapp.com/quartos/", function(resultado){
+    $.get("https://defmoteapi.herokuapp.com/quartos/", function(resultado){
 
         var tabela = document.getElementById('tabelaQuartos')
         tabela.innerHTML = ''

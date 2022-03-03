@@ -1,5 +1,5 @@
 export function dadosProdutos() {
-    $.get("https://drf-motel.herokuapp.com/produtos/", function(resultado){
+    $.get("https://defmoteapi.herokuapp.com/produtos/", function(resultado){
 
         var tabela = document.getElementById('tabelaProdutos')
         tabela.innerHTML = ''

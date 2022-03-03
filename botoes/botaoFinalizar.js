@@ -31,12 +31,12 @@ function registroOcupacao(quarto, entrada){
         total: total,
     }
 
-    $.post("http://127.0.0.1:8000/ocupacoes/", box, function(){})
+    $.post("https://defmoteapi.herokuapp.com/ocupacoes/", box, function(){})
 
 }
 
 function zerarComanda(){
-   $.get("http://127.0.0.1:8000/comanda/", function(retorno){
+   $.get("https://defmoteapi.herokuapp.com/comanda/", function(retorno){
 
         var numero_quarto = JSON.parse(sessionStorage.getItem('quarto'))
 
@@ -46,7 +46,7 @@ function zerarComanda(){
 
             var identificador = dados[i].id
 
-            liviaExclui("http://127.0.0.1:8000/comanda/", identificador)
+            liviaExclui("https://defmoteapi.herokuapp.com/comanda/", identificador)
 
         }
     })
@@ -54,7 +54,7 @@ function zerarComanda(){
 
 function zerarHeader(){
           
-    $.get("http://127.0.0.1:8000/header/", function(retorno){
+    $.get("https://defmoteapi.herokuapp.com/header/", function(retorno){
 
         var numero_quarto = JSON.parse(sessionStorage.getItem('quarto'))
 
@@ -66,7 +66,7 @@ function zerarHeader(){
             var quarto = dados[i].quarto
             var entrada = dados[i].datahora
 
-            liviaExclui("http://127.0.0.1:8000/header/", identificador)
+            liviaExclui("https://defmoteapi.herokuapp.com/header/", identificador)
 
         }
 
@@ -76,7 +76,7 @@ function zerarHeader(){
 }
 
 function zerarPatio(){
-    $.get("http://127.0.0.1:8000/patio/", function(retorno){
+    $.get("https://defmoteapi.herokuapp.com/patio/", function(retorno){
 
         var numero_quarto = JSON.parse(sessionStorage.getItem('quarto'))
 
@@ -86,7 +86,7 @@ function zerarPatio(){
 
             var identificador = dados[i].id
 
-            liviaExclui("http://127.0.0.1:8000/patio/", identificador)
+            liviaExclui("https://defmoteapi.herokuapp.com/patio/", identificador)
 
         }
 

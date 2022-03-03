@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    $.get("https://drf-motel.herokuapp.com/quartos/", function(resultado){
+    $.get("https://defmoteapi.herokuapp.com/quartos/", function(resultado){
 
         for(var i = 0; i < resultado.length; i++){
 

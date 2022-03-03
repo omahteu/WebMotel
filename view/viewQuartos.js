@@ -2,7 +2,7 @@ import { modos } from '../boxes/box.js'
 
 function mostraProduto(){
 
-	$.get("http://127.0.0.1:8000/comanda/", function(retorno){
+	$.get("https://defmoteapi.herokuapp.com/comanda/", function(retorno){
 
 		var nQuarto =  $("#numquarto").text()
 		var prateleira = document.getElementById('lprodutos');
@@ -113,7 +113,7 @@ $("[id=mon]").mousedown(function(){
 
 function backupInfos(instancia){
 
-	$.get("http://127.0.0.1:8000/header/", function(retorno){
+	$.get("https://defmoteapi.herokuapp.com/header/", function(retorno){
 
 
 		var nQuarto =  $("#numquarto").text()

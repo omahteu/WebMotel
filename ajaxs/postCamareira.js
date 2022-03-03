@@ -7,7 +7,7 @@ $("#salvarCamareira").click(function(){
         registro: gera_id()
     }
 
-    $.post("https://drf-motel.herokuapp.com/camareiras/", dados, function(msg){
+    $.post("https://defmoteapi.herokuapp.com/camareiras/", dados, function(msg){
         alert("Camareira Registrado!")
 
         document.getElementById('formPostCamareira').reset()

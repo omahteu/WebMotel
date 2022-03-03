@@ -44,10 +44,4 @@ $(".locado").click(function(){
                 break
         }
     }
-
-
-    
-
-
-
 })

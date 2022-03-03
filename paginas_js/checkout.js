@@ -6,7 +6,7 @@ function informacaoes(){
 
 	var numero_quarto = JSON.parse(sessionStorage.getItem('quarto'))
 
-	$.get("http://127.0.0.1:8000/comanda/", function(retorno){
+	$.get("https://defmoteapi.herokuapp.com/comanda/", function(retorno){
 
 	    var prateleira = document.getElementById('itensComprados');
 		prateleira.innerHTML = '';

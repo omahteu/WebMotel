@@ -30,7 +30,7 @@ $(document).ready(function(){
         $("#telefone3").text(resultado[0].telefone3)
     }
 
-    dados.open("GET", "https://drf-motel.herokuapp.com/igs/", true)
+    dados.open("GET", "https://defmoteapi.herokuapp.com/igs/", true)
     dados.send()
 })
 

@@ -24,10 +24,10 @@ function registroVeiculo(){
     }
 
 	// Requisição POST
-	$.post("http://127.0.0.1:8000/comanda/", patio, function(msg){
+	$.post("https://defmoteapi.herokuapp.com/patio/", patio, function(msg){
 
 		// Exibe os Produtos
-		mostraProduto();
+		mostraVeiculo();
 	})
 
 	document.getElementById('formLogin').reset();
@@ -36,7 +36,7 @@ function registroVeiculo(){
 function removeVeiculo(operacao){
 
 	$.ajax({
-		url: "http://127.0.0.1:8000/patio/" + operacao,
+		url: "https://defmoteapi.herokuapp.com/patio/" + operacao,
 		method: "DELETE",
 		dataType: "json",
 		success: function(data){
@@ -49,7 +49,7 @@ function removeVeiculo(operacao){
 function mostraVeiculo(){
 
 	// Requisição GET
-	$.get("http://127.0.0.1:8000/patio/", function(retorno){
+	$.get("https://defmoteapi.herokuapp.com/patio/", function(retorno){
 
 		// Parâmetro e Instância de Tabela
 		var nQuarto =  $("#numquarto").text()

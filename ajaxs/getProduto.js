@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $.get("https://drf-motel.herokuapp.com/produtos/", function(resultado){
+    $.get("https://defmoteapi.herokuapp.com/produtos/", function(resultado){
 
     resultado.forEach(function(item){
         $('#cod').append('<option>' + item.descricao + '</option>');
