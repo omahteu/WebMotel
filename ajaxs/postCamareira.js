@@ -1,4 +1,4 @@
-$("#salvarCamareira").click(function(){
+$("#salvarFormPostCamareira").click(function(){
     
     let camareira = $("#camareira").val()
 

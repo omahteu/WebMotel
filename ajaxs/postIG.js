@@ -1,4 +1,4 @@
-$("#salvarIG").click(function(){
+$("#salvarFormPostIg").click(function(){
 
     let bairro = $("#bairro").val()
     let cidade = $("#cidade").val()

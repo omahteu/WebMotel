@@ -1,4 +1,4 @@
-$("#salvar").click(function(){
+$("#salvarFormPostProduto").click(function(){
     
     let codigo = $("#codigo").val()
     let descricao = $("#descricao").val()
@@ -12,10 +12,7 @@ $("#salvar").click(function(){
     var mes = horaEntrada.getMonth()
     var ano = horaEntrada.getFullYear()
 
-
     let dataAtual = String(dia) + '/' + String(mes) + '/' + String(ano)
-
-    console.log(codigo)
 
     var dados = {
             codigo: codigo,

@@ -11,7 +11,7 @@
 
 <body>
 
-  <div i d="accordion">
+  <div id="accordion">
 
     <!-- Cabeçalho -->
     <div class="card">
@@ -26,7 +26,7 @@
 
       <div id="collapseCabecalho" class="collapse show" aria-labelledby="headingCabecalho" data-parent="#accordion">
         <div class="card-body">
-          Realize todos os cadastros necessários nessa tela.
+          Todos os cadastros necessários para o sistema estão aqui!
         </div>
       </div>
     </div>
@@ -44,56 +44,54 @@
 
       <div id="collapseQuartos" class="collapse" aria-labelledby="headingQuartos" data-parent="#accordion">
         <div class="card-body">
-          <form action="">
+          <form id="formPostQuarto">
             <div class="row">
               <div class="col">
-                <input type="text" class="form-control" id="codigo_quarto" placeholder="Código do Quarto">
-                <input type="text" class="form-control" id="numero_quarto" placeholder="Número do Quarto">
-                <input type="text" class="form-control" id="horas_locacao" placeholder="Qtd Horas Locação">
-                <input type="text" class="form-control" id="valor_locacao" placeholder="Valor Locação">
-                <!--<input type="text" class="form-control" placeholder="Qtd Horas Pernoite">
-                <input type="text" class="form-control" placeholder="Valor Pernoite">-->
-                <input type="text" class="form-control" placeholder="Tempo Especial">
-                <input type="text" class="form-control" placeholder="Valor Especial">
-                <input type="text" class="form-control" placeholder="Qtd Horas Diária">
-                <input type="text" class="form-control" placeholder="Valor Diária">
-                <input type="text" class="form-control" placeholder="Tempo Adicional (Minutos)">
-                <input class="form-check-input" type="checkbox" id="gridCheck">
+                <input type="text" class="form-control" id="codigoQuarto" placeholder="Código do Quarto">
+                <input type="text" class="form-control" id="numeroQuarto" placeholder="Número do Quarto">
+                <input type="text" class="form-control" id="horasLocacao" placeholder="Qtd Horas Locação">
+                <input type="text" class="form-control" id="valorLocacao" placeholder="Valor Locação">
+                <input type="text" class="form-control" id="tempoEspecial" placeholder="Tempo Especial">
+                <input type="text" class="form-control" id="valorEspecial" placeholder="Valor Especial">
+                <input type="text" class="form-control" id="horasDiarias" placeholder="Qtd Horas Diária">
+                <input type="text" class="form-control" id="valorDiaria" placeholder="Valor Diária">
+                <input type="text" class="form-control" id="tempoAdicional" placeholder="Tempo Adicional (Minutos)">
+                <input class="form-check-input" type="checkbox" id="gridCheck" value="Percentural">
                 <label class="forme-check-label" for="gridCheck">
                   Adicional em Percentual
                 </label>
-                <input type="text" class="form-control" placeholder="Valor Hora Adicional">
-                <input type="text" class="form-control" placeholder="Tolerância (Minutos)">
+                <input type="text" class="form-control" id="valorHoraAdicional" placeholder="Valor Hora Adicional">
+                <input type="text" class="form-control" id="tolerancia" placeholder="Tolerância (Minutos)">
                 <div>
                   <div class="box">
-                    <select id="inputState" class="form-controle">
-                      <option selected>...</option>
+                    <select id="suite" class="form-controle">
+                      <option hidden>Tipo Suíte</option>
                       <option>Ventilador</option>
                       <option>Ar</option>
                     </select>
                   </div>
                   <div class="box">
-                    <select id="inputState" class="form-controle">
-                      <option selected>...</option>
+                    <select id="tabela" class="form-controle">
+                      <option hidden>Tabela</option>
                       <option>Fixo</option>
                       <option>Por Hora</option>
                       <option>Diária</option>
                     </select>
                   </div>
                 </div>
-                <input type="text" class="form-control" placeholder="Valor 1ª Hora">
-                <input type="text" class="form-control" placeholder="Valor 2ª Hora">
-                <input type="text" class="form-control" placeholder="Valor 3ª Hora">
-                <input type="text" class="form-control" placeholder="Valor 4ª Hora">
-                <input type="text" class="form-control" placeholder="Valor 5ª Hora">
-                <input type="text" class="form-control" placeholder="Valor 6ª Hora">
+                <input type="text" class="form-control" id="valor1hora" placeholder="Valor 1ª Hora">
+                <input type="text" class="form-control" id="valor2hora" placeholder="Valor 2ª Hora">
+                <input type="text" class="form-control" id="valor3hora" placeholder="Valor 3ª Hora">
+                <input type="text" class="form-control" id="valor4hora" placeholder="Valor 4ª Hora">
+                <input type="text" class="form-control" id="valor5hora" placeholder="Valor 5ª Hora">
+                <input type="text" class="form-control" id="valor6hora" placeholder="Valor 6ª Hora">
               </div>
             </div>
 
             <div class="row">
               <div class="col">
-                <input type="button" class="btn btn-success" value="Salvar">
-                <input type="button" class="btn btn-danger" value="Limpar">
+                <input type="button" class="btn btn-success" id="salvarFormPostQuarto" value="Salvar">
+                <input type="button" class="btn btn-danger" id="limparFormPostQuarto" value="Limpar">
               </div>
             </div>
           </form>
@@ -127,8 +125,8 @@
 
             <div class="row">
               <div class="col">
-                <input type="button" class="btn btn-success" id="salvar" value="Salvar">
-                <input type="button" class="btn btn-danger" onclick="limpar()" value="Limpar">
+                <input type="button" class="btn btn-success" id="salvarFormPostProduto" value="Salvar">
+                <input type="button" class="btn btn-danger" id="limparFormPostProduto" value="Limpar">
               </div>
             </div>
           </form>
@@ -163,11 +161,11 @@
                 <input type="text" class="form-control" id="telefone2" placeholder="Telefone 2">
                 <input type="text" class="form-control" id="telefone3" placeholder="Telefone 3">
               </div>
-            </div> 
+            </div>
             <div class="row">
               <div class="col">
-                <input type="button" class="btn btn-success" id="salvarIG" value="Salvar">
-                <input type="button" class="btn btn-danger" onclick="limpar()" value="Limpar">
+                <input type="button" class="btn btn-success" id="salvarFormPostIg" value="Salvar">
+                <input type="button" class="btn btn-danger" id="limparFormPostIg" value="Limpar">
               </div>
             </div>
           </form>
@@ -188,17 +186,17 @@
 
       <div id="collapseEmail" class="collapse" aria-labelledby="headingEmail" data-parent="#accordion">
         <div class="card-body">
-          <form>
+          <form id="formPostEmail">
             <div class="row">
               <div class="col">
-                <input type="text" class="form-control" placeholder="Usuário">
-                <input type="text" class="form-control" placeholder="Password">
-                <input type="text" class="form-control" placeholder="SMTP">
-                <input type="text" class="form-control" placeholder="Porta">
-                <input type="text" class="form-control" placeholder="Timeout (seg)">
-                <input type="text" class="form-control" placeholder="Email Destino">
-                <input type="text" class="form-control" placeholder="Email Contabilidade">
-                <input class="form-check-input" type="checkbox" id="gridCheck">
+                <input type="text" class="form-control" id="usuario" placeholder="Usuário">
+                <input type="text" class="form-control" id="senha" placeholder="Senha">
+                <input type="text" class="form-control" id="smtp" placeholder="SMTP">
+                <input type="text" class="form-control" id="porta" placeholder="Porta">
+                <input type="text" class="form-control" id="timeout" placeholder="Timeout (seg)">
+                <input type="text" class="form-control" id="destino" placeholder="Email Destino">
+                <input type="text" class="form-control" id="contabilidade" placeholder="Email Contabilidade">
+                <input class="form-check-input" type="checkbox" id="gridCheck" value="True">
                 <label class="forme-check-label" for="gridCheck">
                   Requer Autenticação
                 </label>
@@ -207,8 +205,8 @@
 
             <div class="row">
               <div class="col">
-                <input type="button" class="btn btn-success" id="salvarCamareira" value="Salvar">
-                <input type="button" class="btn btn-danger" onclick="limpar()" value="Limpar">
+                <input type="button" class="btn btn-success" id="salvarFormPostEmail" value="Salvar">
+                <input type="button" class="btn btn-danger" id="limparFormPostEmail" value="Limpar">
               </div>
             </div>
           </form>
@@ -238,8 +236,8 @@
 
             <div class="row">
               <div class="col">
-                <input type="button" class="btn btn-success" id="salvarCamareira" value="Salvar">
-                <input type="button" class="btn btn-danger" onclick="limpar()" value="Limpar">
+                <input type="button" class="btn btn-success" id="salvarFormPostCamareira" value="Salvar">
+                <input type="button" class="btn btn-danger" id="limparFormPostCamareira" value="Limpar">
               </div>
             </div>
           </form>
@@ -295,13 +293,8 @@
 <script src="../ajaxs/postProduto.js"></script>
 <script src="../ajaxs/postCamareira.js"></script>
 <script src="../ajaxs/postIG.js"></script>
+<script src="../ajaxs/postQuarto.js"></script>
 
-<script>
-  function limpar() {
-    document.getElementById('formPostProduto').reset()
-    document.getElementById('formPostCamareira').reset()
-    document.getElementById('formPostIG').reset()
-  }
-</script>
+<script type="module" src="../boxes/box.js"></script>
 
 </html>
