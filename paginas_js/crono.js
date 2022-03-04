@@ -24,7 +24,6 @@ export function reset() {
   document.getElementById('hour').innerText = '00';
   document.getElementById('minute').innerText = '00';
   document.getElementById('second').innerText = '00';
-  document.getElementById('millisecond').innerText = '000';
 }
 
 export function timer(quarto) {

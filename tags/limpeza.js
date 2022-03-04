@@ -3,7 +3,10 @@ export function limpeza(q, x, y, z) {
         "background-color": "#F0E68C",
         "opacity": 0.5})
     
-    $("#tempo").css('margin-top', '-30px')
+    $("[name=form_main" + q + "]").css({
+        'margin-bottom': '-60px',
+        'padding-top': '50px'
+    })
 
     $("[id=botaoq" + q + "]").css('visibility', 'hidden')
 

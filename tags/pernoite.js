@@ -1,5 +1,3 @@
-import { precos } from "../boxes/box.js";
-
 export function pernoite(q, t, x, y, z) {
     $("#quarto" + q).css({
         "background-color": "#8B008B",
@@ -29,10 +27,10 @@ export function pernoite(q, t, x, y, z) {
 
     switch (tipoQuarto){
         case 'AR':
-            $("#valor-quarto").text(precos[2].pernoiteVentilador)
+            $("#valor-quarto").text('')
             break
         case 'VENTILADOR':
-            $("#valor-quarto").text(precos[3].pernoiteAr)
+            $("#valor-quarto").text('')
             break
     }
 

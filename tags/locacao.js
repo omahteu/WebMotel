@@ -1,8 +1,8 @@
-//import { precos } from "../boxes/box.js";
 import { timer } from "../paginas_js/crono.js"
 
-
 export function locado(q, t,  x, y, z) {
+
+    // CSS
     $("#quarto" + q).css({
         "background-color": "#FF0000",
         "opacity": 0.5})
@@ -16,14 +16,7 @@ export function locado(q, t,  x, y, z) {
 
     $("[id=botaoq" + q + "]").css('visibility', 'hidden')
 
-    var horaEntrada = new Date();
-    var hora = horaEntrada.getHours()
-    var minutos = horaEntrada.getMinutes()
-    $("[id=tempo]").text(String(hora) + ':' + String(minutos))
-
-    // $("#" + x).css('visibility', 'visible')
-    // $("#" + x).val('Alterar P/ Pernoite')
-
+    // Botões Inferiores
     $("#" + x).css('visibility', 'visible')
     $("#" + x).val('Trocar Suíte')
 
@@ -35,41 +28,44 @@ export function locado(q, t,  x, y, z) {
         $("#" + z).val('Cancelar Reserva')
     } 
 
+    // Preço
     var tipoQuarto = $('#tipo' + q).text()
-    console.log(tipoQuarto)
-    
 
     switch (tipoQuarto){
         case 'AR':
-
-            $.get("https://defmoteapi.herokuapp.com/quartos/", function(retorno){
-                var dados = retorno.filter(quartos => quartos.tipo_quarto == 'AR')
-                dados.forEach(function(resultado){
-                    $("#valor-quarto").text(resultado.valor_locacao)
+            if(t === 'btn locado'){
+                $.get("https://defmoteapi.herokuapp.com/quartos/", function(retorno){
+                    var dados = retorno.filter(quartos => quartos.tipo_quarto == 'AR')
+                    dados.forEach(function(resultado){
+                        $("#valor-quarto").text(resultado.valor_locacao)
+                    })
                 })
-            })
-
+            }
             break
+
         case 'VENTILADOR':
-
-            $.get("https://defmoteapi.herokuapp.com/quartos/", function(retorno){
-                var dados = retorno.filter(quartos => quartos.tipo_quarto == 'VENTILADOR')
-                dados.forEach(function(resultado){
-                    $("#valor-quarto").text(resultado.valor_locacao)
+            if(t === 'btn locado'){
+                $.get("https://defmoteapi.herokuapp.com/quartos/", function(retorno){
+                    var dados = retorno.filter(quartos => quartos.tipo_quarto == 'VENTILADOR')
+                    dados.forEach(function(resultado){
+                        $("#valor-quarto").text(resultado.valor_locacao)
+                    })
                 })
-            })
-
+            }
             break
     }
 
+    // Hora Atual
+    var horaEntrada = new Date();
+    var hora = horaEntrada.getHours()
+    var minutos = horaEntrada.getMinutes()
+
+    // Definições
     $("#numquarto").text(q)
     $("#tipo").text('locado')
-    $("#intervalo").text(x + "," + y + "," + z)
-    $("#entrada").text(String(hora) + ':' + String(minutos) + 'h')
+    $("#intervalo").text(`${x},${y},${z}`)
+    $("#entrada").text(`${String(hora)}:${String(minutos)}h`)
     $("#imagemQuarto" + q).css('border', '2px solid rgb(255, 0, 0)')
     $("#imagemQuarto" + q).css('box-shadow', 'inset 0 0 1em rgb(255, 0, 0), 0 0 1em #000')
-
     timer(q)
 }
-
-

@@ -3,6 +3,8 @@ export function desfazer(q, x, y, z) {
 
     $("[id=botaoq" + q + "]"). removeAttr('style')
 
+    $("[name=form_main" + q + "]"). removeAttr('style')
+
     $("#" + x). removeAttr('style')
     $("#" + x).val('')
 

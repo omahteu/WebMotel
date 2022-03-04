@@ -11,24 +11,24 @@ function mostraProduto(){
 		try{
 			var dados = retorno.filter(quartos => quartos.quarto == nQuarto)
 
-			for(var i = 0; i < dados.length; i++){
-	
-				var id = dados[i].id
-				var quarto =  dados[i].quarto
-				var descricao = dados[i].descricao
-				var quantidade = dados[i].quantidade
-				var valorUnitario = dados[i].valor_unitario
-				var valorTotal = dados[i].valor_total
-		
+			dados.forEach(function(resultado){
+
+				var id = resultado.id
+				var quarto =  resultado.quarto
+				var descricao = resultado.descricao
+				var quantidade = resultado.quantidade
+				var valorUnitario = resultado.valor_unitario
+				var valorTotal = resultado.valor_total
+
 				prateleira.innerHTML += '<tr>'+
 											'<td>'+ quarto + '</td>' +
 											'<td>'+ descricao + '</td>' +
 											'<td>'+ quantidade + '</td>' +
 											'<td>'+ valorUnitario + '</td>' +
 											'<td>'+ valorTotal + '</td>' +
-											 '<td><button onclick="removeProduto('+ id +')" class="btn btn-danger">Remover</button></td>'+
+											'<td><button onclick="removeProduto('+ id +')" class="btn btn-danger">Remover</button></td>'+
 										'</tr>';
-			}
+			})
 		} catch (error) {
 			localStorage.setItem('produtos', JSON.stringify([]))
 		}
@@ -96,10 +96,6 @@ $("[id=mon]").mousedown(function(){
 			break
 	}
 
-	// Exibição de Dados do Cabeçalho
-	//$("#intervalo").text('a4,a5,a6')
-	//backupInfos(instance)
-
 	// Variáveis usadas para Filtro
 	let tipo = $("#tipo").text()
 	let tipos = ['pernoite', 'locado']
@@ -107,7 +103,6 @@ $("[id=mon]").mousedown(function(){
 	// Filtro para Restauração de Produtos e Veículos
 	if(tipos.includes(tipo)){
 		mostraProduto()
-		// mostraGaragem(quarto)
 	}
 });
 
@@ -115,19 +110,17 @@ function backupInfos(instancia){
 
 	$.get("https://defmoteapi.herokuapp.com/header/", function(retorno){
 
-
 		var nQuarto =  $("#numquarto").text()
 
 		try{
 			var dados = retorno.filter(quartos => quartos.quarto == nQuarto)
 
-			for(var i = 0; i < dados.length; i++){
-	
-				$("#numquarto").text(dados[i].quanrto)
-				$("#entrada").text(dados[i].datahora)
-				$("#valor-quarto").text(dados[i].valor)
-		
-			}
+			dados.forEach(function(resultado){
+
+				$("#numquarto").text(resultado.quanrto)
+				$("#entrada").text(resultado.datahora)
+				$("#valor-quarto").text(resultado.valor)
+			})
 		} catch (error) {
 			localStorage.setItem('produtos', JSON.stringify([]))
 		}
