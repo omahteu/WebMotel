@@ -20,9 +20,25 @@ export function index(){
     }
 
 
+    $.get("https://defmoteapi.herokuapp.com/header/", function(retorno){
 
-    $.post("https://defmoteapi.herokuapp.com/header/", dados, function(){
-        
+
+
+
+        if(retorno.length == 0){
+            $.post("https://defmoteapi.herokuapp.com/header/", dados, function(){})
+        }
+
+
+        retorno.forEach(function(item){
+
+            if(item.quarto == quarto){
+                console.log('')
+            } 
+            
+            if(item.quarto != quarto){
+                $.post("https://defmoteapi.herokuapp.com/header/", dados, function(){})
+            }
+        })
     })
-
 }
