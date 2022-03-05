@@ -8,7 +8,7 @@ let millisecond = 0;
 let cron;
 
 export function start2() {
-    //pause2();
+    pause2();
     cron = setInterval(() => { timer2(); }, 10);
   }
   

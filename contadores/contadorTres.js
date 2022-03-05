@@ -25,7 +25,6 @@ export function start3() {
     document.getElementById('hour3').innerText = '00';
     document.getElementById('minute3').innerText = '00';
     document.getElementById('second3').innerText = '00';
-    document.getElementById('millisecond3').innerText = '000';
   }
   
   export function timer3() {
@@ -44,7 +43,6 @@ export function start3() {
     document.getElementById('hour3').innerText = returnData3(hour);
     document.getElementById('minute3').innerText = returnData3(minute);
     document.getElementById('second3').innerText = returnData3(second);
-    //document.getElementById('millisecond').innerText = returnData(millisecond);
   }
   
   export function returnData3(input) {
