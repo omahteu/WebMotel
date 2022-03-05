@@ -1,10 +1,10 @@
 import { manutencao } from "../tags/manutencao.js"
 import { modos } from "../boxes/box.js"
 import { index } from "../tags/particao.js"
-import { start } from "../paginas_js/crono.js"
-import { start2 } from "../paginas_js/crono.js"
-import { start3 } from "../paginas_js/crono.js"
-import { start4 } from "../paginas_js/crono.js"
+import { start } from '../contadores/contadorUm.js'
+import { start2 } from '../contadores/contadorDois.js'
+import { start3 } from '../contadores/contadorTres.js'
+import { start4 } from '../contadores/contadorQuatro.js'
 
 $(".manutencao").click(function(){
     var quarto = $(this).attr('name')

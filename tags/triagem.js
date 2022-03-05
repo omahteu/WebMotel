@@ -4,12 +4,11 @@ import { locado } from "./locacao.js"
 import { limpeza } from "./limpeza.js"
 import { faxina } from "./faxina.js"
 import { aguardando } from './aguardo.js'
-import { start } from "../paginas_js/crono.js"
-import { pause } from "../paginas_js/crono.js"
-import { pause2 } from "../paginas_js/crono.js"
-import { pause3 } from "../paginas_js/crono.js"
-import { pause4 } from "../paginas_js/crono.js"
-import { reset } from "../paginas_js/crono.js"
+//import * as contadorUm from '../contadores/contadorUm.js'
+import { start, pause, reset, timer, returnData} from '../contadores/contadorUm.js'
+import * as contadorDois from '../contadores/contadorDois.js'
+import * as contadorTres from '../contadores/contadorTres.js'
+import * as contadorQuatro from '../contadores/contadorQuatro.js'
 
 var rota = 'rota'
 
@@ -17,10 +16,13 @@ export function triagem(acao, quarto, x, y, z){
 
     switch(acao){
         case "Disponibilizar Quarto":
+            pause()
+
+            console.log('ate aqui')
+            reset()
+            console.log('depois')
             confirm("Certeza que deseja encerrar" + quarto + "?")
             desfazer(quarto, x, y, z)
-            pause()
-            reset()
             break
 
         case "Cancelar Reserva":
@@ -39,20 +41,21 @@ export function triagem(acao, quarto, x, y, z){
 
                 aguardando(quarto, x, y, z)
 
-                switch(quarto){
-                    case "1":
-                        pause()
-                        break
-                    case "2":
-                        pause2()
-                        break
-                    case "3":
-                        pause3()
-                        break
-                    case "4":
-                        pause4()
-                        break
-                }
+                // switch(quarto){
+                //     case "1":
+                //         pause()
+                //         break
+                //     case "2":
+                //         contadorDois.pause2()
+                //         break
+                //     case "3":
+                //         contadorTres.pause3()
+                //         break
+                //     case "4":
+                //         contadorQuatro.pause4()
+                //         break
+                // }
+                
 
               } else {
                 // pass
@@ -78,13 +81,50 @@ export function triagem(acao, quarto, x, y, z){
 
         case "Iniciar Limpeza":
             limpeza(quarto, x, y, z)
-            reset()
-            start()
+            switch(quarto){
+                case '1':
+                    reset()
+                    start()
+                    break
+                
+                case '2':
+                    contadorDois.reset2()
+                    contadorDois.start2()
+                    break
+
+                case '3':
+                    contadorTres.reset3()
+                    contadorTres.start3()
+                    break
+
+                case '4':
+                    contadorQuatro.reset4()
+                    contadorQuatro.start4()
+                    break
+            }
             break
 
         case "Iniciar Faxina":
             faxina(quarto, rota, x, y, z)
-            reset()
+            switch(quarto){
+                case '1':
+                    reset()
+                    start()
+                    break
+                
+                case '2':
+                    contadorDois.reset2()
+                    break
+
+                case '3':
+                    contadorTres.reset3()
+                    break
+
+                case '4':
+                    contadorQuatro.reset4()
+                    break
+            }
             break
     }
+
 }

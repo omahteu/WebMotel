@@ -26,7 +26,7 @@ export function reset() {
   document.getElementById('second').innerText = '00';
 }
 
-export function timer(quarto) {
+export function timer() {
   if ((millisecond += 10) == 1000) {
     millisecond = 0;
     second++;
@@ -48,6 +48,8 @@ export function timer(quarto) {
 export function returnData(input) {
   return input > 10 ? input : `0${input}`
 }
+
+// PRÓXIMO
 
 export function start2() {
   pause2();
@@ -92,6 +94,8 @@ export function returnData2(input) {
   return input > 10 ? input : `0${input}`
 }
 
+// PRÓXIMO
+
 export function start3() {
   pause3();
   cron = setInterval(() => { timer3(); }, 10);
@@ -134,6 +138,8 @@ export function timer3() {
 export function returnData3(input) {
   return input > 10 ? input : `0${input}`
 }
+
+// PRÓXIMO
 
 export function start4() {
   pause4();

@@ -1,5 +1,7 @@
 export function faxina(q, t, x, y, z) {
 
+    console.log('iniciando faxina')
+
     // CSS
     $("#quarto" + q).css({
         "background-color": "#FFE4C4",

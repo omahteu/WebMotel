@@ -1,5 +1,3 @@
-import { timer } from "../paginas_js/crono.js"
-
 export function locado(q, t,  x, y, z) {
 
     // CSS
@@ -12,7 +10,7 @@ export function locado(q, t,  x, y, z) {
         'padding-top': '50px'
     })
 
-    $("#tipo1").css('font-size', '25px')
+    $("#tipo" + q).css('font-size', '25px')
 
     $("[id=botaoq" + q + "]").css('visibility', 'hidden')
 
@@ -67,5 +65,4 @@ export function locado(q, t,  x, y, z) {
     $("#entrada").text(`${String(hora)}:${String(minutos)}h`)
     $("#imagemQuarto" + q).css('border', '2px solid rgb(255, 0, 0)')
     $("#imagemQuarto" + q).css('box-shadow', 'inset 0 0 1em rgb(255, 0, 0), 0 0 1em #000')
-    timer(q)
 }

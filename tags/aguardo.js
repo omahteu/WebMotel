@@ -15,8 +15,8 @@ export function aguardando(q, x, y, z) {
     $("#" + x).css('visibility', 'visible')
     $("#" + x).val('Iniciar Limpeza')
 
-    // $("#" + y).css('visibility', 'visible')
-    // $("#" + y).val('Alterar P/ Locação')
+    $("#" + y).css('visibility', 'hidden')
+    $("#" + y).val('Alterar P/ Locação')
 
     // $("#" + z).css('visibility', 'visible')
     // $("#" + z).val('Cancelar Reserva')

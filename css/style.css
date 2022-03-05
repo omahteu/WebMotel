@@ -1281,4 +1281,5 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
 #hour3, #minute3, #second3,
 #hour4, #minute4, #second4 {
   font-size: 22px;
+  color: #000;
 }
