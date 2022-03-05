@@ -8,7 +8,7 @@ import { quartoum } from "../boxes/box.js"
 var rota = 'rota'
 
 // Botões Inferiores
-$("#" + quartoum[0]).click(function(){
+$(`#${quartoum[0]}`).click(function(){
 
     // Parâmetros e Chamada de Função
     var acao = $(this).val()
@@ -40,7 +40,7 @@ $("#" + quartoum[0]).click(function(){
     }
 })
 
-$("#" + quartoum[1]).click(function(){
+$(`#${quartoum[1]}`).click(function(){
 
     var acao = $(this).val()
     var flags = $("#intervalo").text().split(",")
@@ -64,7 +64,7 @@ $("#" + quartoum[1]).click(function(){
     }
 })
 
-$("#" + quartoum[2]).click(function(){
+$(`#${quartoum[2]}`).click(function(){
 
     var acao = $(this).val()
     // var quarto = $("#numquarto").text()
