@@ -6,7 +6,6 @@ import { start2 } from "../contadores/contadorDois.js"
 import { start3 } from "../contadores/contadorTres.js"
 import { start4 } from "../contadores/contadorQuatro.js"
 
-
 $(".locado").click(function(){
     var quarto = $(this).attr('name')
     var rota = $(this).attr('class')

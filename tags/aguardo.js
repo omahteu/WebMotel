@@ -7,10 +7,7 @@ export function aguardando(q, x, y, z) {
 
     $("[id=botaoq" + q + "]").css('visibility', 'hidden')
 
-    var horaEntrada = new Date();
-    var hora = horaEntrada.getHours()
-    var minutos = horaEntrada.getMinutes()
-    $("[id=tempo]").text(String(hora) + ':' + String(minutos))
+zz
 
     $("#" + x).css('visibility', 'visible')
     $("#" + x).val('Iniciar Limpeza')

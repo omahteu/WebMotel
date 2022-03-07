@@ -13,30 +13,29 @@ $(".manutencao").click(function(){
         case '1':
             var flags = modos.slice(0, 3)
             manutencao(quarto, flags[0], flags[1], flags[2])
-            index()
             start()
+            setTimeout(function() {index()}, 2000);
             break
 
         case '2':
             var flags = modos.slice(3, 6)
             manutencao(quarto, flags[0], flags[1], flags[2])
-            index()
             start2()
+            setTimeout(function() {index()}, 2000);
             break
         
         case '3':
             var flags = modos.slice(6, 9)
             manutencao(quarto, flags[0], flags[1], flags[2])
-            index()
             start3()
+            setTimeout(function() {index()}, 2000);
             break
 
-        
         case '4':
             var flags = modos.slice(9, 12)
             manutencao(quarto, flags[0], flags[1], flags[2])
-            index()
             start4()
+            setTimeout(function() {index()}, 2000);
             break
     }
 })
