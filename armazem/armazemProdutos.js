@@ -7,7 +7,7 @@ $("#salvar").click(function(){
 	if(tipos.includes(tipo)){
 		registroProduto()
 	} else (
-		alert('Selecione uma tabela!')
+		alert('Selecione um Quarto!')
 	)
 })
 

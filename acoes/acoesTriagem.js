@@ -1,6 +1,8 @@
 import { modos } from '../boxes/box.js'
-import { resposta2, resposta3, resposta4 } from './acoesMain.js'
 import { resposta1 } from './acaorespostaum.js'
+import { resposta2 } from './acaoRespostaDois.js'
+import { resposta3 } from './acaoRespostaTres.js'
+import { resposta4 } from './acaoRespostaQuatro.js'
 
 $("[name=acoes]").click(function(){
     
