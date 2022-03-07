@@ -1,27 +1,39 @@
-export function aguardando(q, x, y, z) {
+export function aguardando(q, t, x, y, z) {
+
+    // CSS
     $("#quarto" + q).css({
         "background-color": "#DAA520",
         "opacity": 0.5})
     
-    $("#tempo").css('margin-top', '-30px')
+    $("[name=form_main" + q + "]").css({
+        'margin-bottom': '-60px',
+        'padding-top': '50px'
+    })
 
     $("[id=botaoq" + q + "]").css('visibility', 'hidden')
 
-zz
-
+    // Botões Inferiores
     $("#" + x).css('visibility', 'visible')
     $("#" + x).val('Iniciar Limpeza')
 
-    $("#" + y).css('visibility', 'hidden')
-    $("#" + y).val('Alterar P/ Locação')
+    if(t != 'btn aguardando'){
+        $("#" + y).css('visibility', 'hidden')
+        $("#" + y).val('Alterar P/ Locação')
 
-    // $("#" + z).css('visibility', 'visible')
-    // $("#" + z).val('Cancelar Reserva')
+        // $("#" + z).css('visibility', 'visible')
+        // $("#" + z).val('Cancelar Reserva')
+    }
 
+    // Hora Atual
+    var horaEntrada = new Date();
+    var hora = horaEntrada.getHours()
+    var minutos = horaEntrada.getMinutes()
+
+    // Definições
     $("#numquarto").text(q)
     $("#tipo").text('aguardando')
-    $("#intervalo").text(x + "," + y + "," + z)
-    $("#entrada").text(String(hora) + ':' + String(minutos) + 'h')
+    $("#intervalo").text(`${x},${y},${z}`)
+    $("#entrada").text(`${String(hora)}:${String(minutos)}h`)
     $("#imagemQuarto" + q).css('border', '2px solid rgb(218, 165, 32)')
     $("#imagemQuarto" + q).css('box-shadow', 'inset 0 0 1em rgb(218, 165, 32), 0 0 1em #000')
 }

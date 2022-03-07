@@ -2,7 +2,6 @@ import { aguardando } from "../tags/aguardo.js"
 import { desfazer } from "../tags/desfazer.js"
 import { faxina } from "../tags/faxina.js"
 import { limpeza } from "../tags/limpeza.js"
-import { pause, reset, start } from '../contadores/contadorUm.js'
 import { pause2, reset2, start2 } from '../contadores/contadorDois.js'
 import { pause3, reset3, start3 } from '../contadores/contadorTres.js'
 import { pause4, reset4, start4} from '../contadores/contadorQuatro.js'

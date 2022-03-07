@@ -1,4 +1,6 @@
-export function limpeza(q, x, y, z) {
+export function limpeza(q, t, x, y, z) {
+
+    // CSS
     $("#quarto" + q).css({
         "background-color": "#F0E68C",
         "opacity": 0.5})
@@ -10,24 +12,28 @@ export function limpeza(q, x, y, z) {
 
     $("[id=botaoq" + q + "]").css('visibility', 'hidden')
 
-    var horaEntrada = new Date();
-    var hora = horaEntrada.getHours()
-    var minutos = horaEntrada.getMinutes()
-    $("[id=tempo]").text(String(hora) + ':' + String(minutos))
-
+    // Botões Inferiores
     $("#" + x).css('visibility', 'visible')
     $("#" + x).val('Disponibilizar Quarto')
 
-    // $("#" + y).css('visibility', 'visible')
-    // $("#" + y).val('Alterar P/ Locação')
+    if(t != 'btn limpeza'){
+        $("#" + y).css('visibility', 'hidden')
+        $("#" + y).val('Alterar P/ Locação')
 
-    // $("#" + z).css('visibility', 'visible')
-    // $("#" + z).val('Cancelar Reserva')
+        $("#" + z).css('visibility', 'hidden')
+        $("#" + z).val('Cancelar Reserva')
+    }
 
+    // Hora Atual
+    var horaEntrada = new Date();
+    var hora = horaEntrada.getHours()
+    var minutos = horaEntrada.getMinutes()
+
+    // Definições
     $("#numquarto").text(q)
     $("#tipo").text('limpeza')
-    $("#intervalo").text(x + "," + y + "," + z)
-    $("#entrada").text(String(hora) + ':' + String(minutos) + 'h')
+    $("#intervalo").text(`${x},${y},${z}`)
+    $("#entrada").text(`${String(hora)}:${String(minutos)}h`)
     $("#imagemQuarto" + q).css('border', '2px solid rgb(240, 230, 140)')
     $("#imagemQuarto" + q).css('box-shadow', 'inset 0 0 1em rgb(240, 230, 140), 0 0 1em #000')
 }

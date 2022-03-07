@@ -37,10 +37,10 @@ export function resposta1(status){
         case 'Encerrar':
             if(confirm(`Deseja Encerrar o Quarto ${quarto}?`)){
                 pause()
+                setTimeout(function() {desfazer(quarto, flags[0], flags[1], flags[2])}, 1000)
                 sessionStorage.setItem('quarto', quarto)
                 window.open('../paginas/checkout.html', '_blank')
-                //setTimeout(function() {desfazer(quarto, flags[0], flags[1], flags[2])}, 1000)
-                setTimeout(function() {aguardando(quarto, flags[0], flags[1], flags[2])}, 2000)
+                setTimeout(function() {aguardando(quarto, rota, flags[0], flags[1], flags[2])}, 2000)
             }
             break
 
