@@ -35,6 +35,43 @@ function mostraProduto(){
 	})
 }
 
+function mostraVeiculo(){
+
+	// Requisição GET
+	$.get("https://defmoteapi.herokuapp.com/patio/", function(retorno){
+
+		// Parâmetro e Instância de Tabela
+		var nQuarto =  $("#numquarto").text()
+		var patio = document.getElementById('garagem');
+		patio.innerHTML = '';
+		
+		try {
+			// Filtro
+			var dados = retorno.filter(quartos => quartos.quarto == nQuarto)
+
+			// Percorrendo o Array e Formantando uma Tabela
+			dados.forEach(function(resultado){
+
+				var id = resultado.id
+				var quarto =  resultado.quarto
+				var veiculo = resultado.veiculo
+				var modelo = resultado.modelo
+				var placa = resultado.placa
+
+				patio.innerHTML += '<tr>'+
+											'<td>'+ quarto + '</td>' +
+											'<td>'+ veiculo + '</td>' +
+											'<td>'+ modelo + '</td>' +
+											'<td>'+ placa + '</td>' +
+											'<td><button onclick="removeVeiculo('+ id +')" class="btn btn-danger">Remover</button></td>'+
+										'</tr>';
+			})
+		} catch (error) {
+			localStorage.setItem('produtos', JSON.stringify([]))
+		}
+	})
+}
+
 $("[id=mon]").mousedown(function(){
 	
 	var instance = $(this)[0].childNodes[1].id.slice(6).toLowerCase()
@@ -44,20 +81,8 @@ $("[id=mon]").mousedown(function(){
 	
 	// Filtro para Restaurar as Tags Corretas
 	switch(cor){
-		case 'rgb(30, 144, 255)':
-			$("#tipo").text('reservado')
-			break
-		case 'rgb(240, 230, 140)':
-			$("#tipo").text('limpeza')
-			break
-		case 'rgb(218, 165, 32)':
-			$("#tipo").text('aguardando')
-			break
 		case 'rgb(169, 169, 169)':
 			$("#tipo").text('manutencao')
-			break
-		case 'rgb(139, 0, 139)':
-			$("#tipo").text('pernoite')
 			break
 		case 'rgb(255, 0, 0)':
 			$("#tipo").text('locado')
@@ -103,6 +128,7 @@ $("[id=mon]").mousedown(function(){
 	// Filtro para Restauração de Produtos e Veículos
 	if(tipos.includes(tipo)){
 		mostraProduto()
+		mostraVeiculo()
 	}
 });
 

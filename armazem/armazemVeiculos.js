@@ -38,8 +38,8 @@ function removeVeiculo(operacao){
 
 	$.ajax({
 		url: "https://defmoteapi.herokuapp.com/patio/" + operacao,
-		method: "DELETE",
-		dataType: "json",
+		method: 'DELETE',
+		dataType: 'json',
 		success: function(data){
 			alert('Veículo Excluído!')
 			mostraVeiculo();
@@ -54,8 +54,8 @@ function mostraVeiculo(){
 
 		// Parâmetro e Instância de Tabela
 		var nQuarto =  $("#numquarto").text()
-		var prateleira = document.getElementById('garagem');
-		prateleira.innerHTML = '';
+		var patio = document.getElementById('garagem');
+		patio.innerHTML = '';
 
 		// Filtro
 		var dados = retorno.filter(quartos => quartos.quarto == nQuarto)
@@ -69,13 +69,13 @@ function mostraVeiculo(){
 			var modelo = resultado.modelo
 			var placa = resultado.placa
 
-			prateleira.innerHTML += '<tr>'+
-										'<td>'+ quarto + '</td>' +
-										'<td>'+ veiculo + '</td>' +
-										'<td>'+ modelo + '</td>' +
-										'<td>'+ placa + '</td>' +
-										'<td><button onclick="removeProduto('+ id +')" class="btn btn-danger">Remover</button></td>'+
-									'</tr>';
+			patio.innerHTML += '<tr>'+
+									'<td>'+ quarto + '</td>' +
+									'<td>'+ veiculo + '</td>' +
+									'<td>'+ modelo + '</td>' +
+									'<td>'+ placa + '</td>' +
+									'<td><button onclick="removeVeiculo('+ id +')" class="btn btn-danger">Remover</button></td>'+
+								'</tr>';
 		})
 	})
 }
