@@ -1,11 +1,12 @@
 $("#guardara").click(function(){
+
     var tipos = ['pernoite', 'locado']
 	var tipo = $("#tipo").text()
 
 	if(tipos.includes(tipo)){
 		registroVeiculo()
 	} else (
-		alert('Selecione um quarto em modo Pernoite ou Locação!')
+		alert('Selecione um Quarto!')
 	)
 })
 
@@ -40,8 +41,8 @@ function removeVeiculo(operacao){
 		method: "DELETE",
 		dataType: "json",
 		success: function(data){
-			alert('Produto Excluído!')
-			mostraProduto();
+			alert('Veículo Excluído!')
+			mostraVeiculo();
 		}
 	})
 }
@@ -53,7 +54,7 @@ function mostraVeiculo(){
 
 		// Parâmetro e Instância de Tabela
 		var nQuarto =  $("#numquarto").text()
-		var prateleira = document.getElementById('lprodutos');
+		var prateleira = document.getElementById('garagem');
 		prateleira.innerHTML = '';
 
 		// Filtro
