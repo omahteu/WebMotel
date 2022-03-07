@@ -4,7 +4,7 @@ export function index(){
     var horaEntrada = new Date();
     var hora = horaEntrada.getHours()
     var minutos = horaEntrada.getMinutes()
-    var datahora = String(hora) + ':' + String(minutos)
+    var datahora = `${String(hora)}:${String(minutos)}`
 
     // Valor do Quarto
     var valor = $("#valor-quarto").text()
@@ -22,13 +22,9 @@ export function index(){
 
     $.get("https://defmoteapi.herokuapp.com/header/", function(retorno){
 
-
-
-
         if(retorno.length == 0){
             $.post("https://defmoteapi.herokuapp.com/header/", dados, function(){})
         }
-
 
         retorno.forEach(function(item){
 
