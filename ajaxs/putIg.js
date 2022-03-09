@@ -1,9 +1,15 @@
-$("#alteraFormPostIg").click(function(){
+$(document).ready(function(){
+    $.get("https://defmoteapi.herokuapp.com/igs/", function(resultado){
+        if(resultado.length != 0){
+            $("#salvarFormPostIg").css('display', 'none')
+        }
+    })
+})
 
+$("#alteraFormPostIg").click(function(){
     $.get("https://defmoteapi.herokuapp.com/igs/", function(resultado){
         if(resultado.length != 0){
             atualizaIg()
-            //verificarIg()
         } else {
             alert("Nenhum dado cadastrado")
         }
@@ -32,21 +38,4 @@ async function atualizaIg(){
     document.getElementById('salvarFormPostIg').id = 'alteraFormPostIg'
     document.getElementById('alteraFormPostIg').value = 'Atualizar'
 
-}
-
-function verificarIg(){
-    
-    $.get("https://defmoteapi.herokuapp.com/igs/", function(resultado){
-        var existe = String(resultado.length)
-
-        if(existe === '80'){
-            var btn = document.getElementById('salvarFormPostIg').id = 'alteraFormPostIg'
-            document.getElementById('alteraFormPostIg').value = 'Atualizar'
-        } else {
-            alert("Nenhum dado cadastrado!")
-        }
-
-
-
-    })
 }
