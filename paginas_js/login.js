@@ -1,68 +1,55 @@
-var users = [
-    {nome: "Tony", senha: "123"},
-]
-
 $("#entrar").click(function(){
-
-    autenticacao()
     
-    // var nome = $("#nome")
-    // var senha = $("#senha")
+    var nome = $("#nome")
+    var senha = $("#senha")
 
-    // if(nome.val() == ''){
-    //     alert('Nome Inválido')
-    //     nome.focus()
-    //     return
-    // }
+    if(nome.val() == ''){
+        alert('Nome Inválido')
+        nome.focus()
+        return
+    }
 
-    // if(senha.val() == ''){
-    //     alert('Senha Inválida')
-    //     senha.focus()
-    //     return
-    // }
+    if(senha.val() == ''){
+        alert('Senha Inválida')
+        senha.focus()
+        return
+    }
 
-    // var b = false
-
-    // for(let i = 0; i<users.length; i++) {                           
-    //     if (nome.val() == users[i].nome && senha.val() == users[i].senha) {
-    //         alert("Login com Sucesso!")
-    //         localStorage.setItem('usuarioLogado', '1');
-    //         $(location).attr('href', './paginas/home.html');
-    //         b = true                       
-    //     }
-    // } 
-    
-    // if(b == false) {                      
-    //     alert('Dados incorretos!');                     
-    // }
+    autenticacao(nome.val(), senha.val())
     
 })
 
-async function autenticacao(){
+async function autenticacao(usuario, senha){
     const resposta = await fetch("https://defmoteapi.herokuapp.com/usuarios/")
     const data = await resposta.json()
 
-    var usuario = 'mis'
-
     var dados = data.filter(nome => nome.nome == usuario)
 
-    console.log(typeof(dados.length))
 
-    if(dados.length != 0){
-        
+    if(dados.length == 0){
+        alert('Usuário e/ou Senha Inválidos!')
+    } else {
+
         dados.forEach(elemento => {
 
-            if(usuario == elemento.nome){
-                //console.log('admin')
-                console.log(elemento.id)
-                
+            if(usuario === elemento.nome && senha === elemento.senha){
+
+                if(elemento.status === 'Admin'){
+                    alert('Login com Sucesso!')
+                    localStorage.setItem('usuarioLogado', '1')
+                    $(location).attr('href', '../paginas/home.html')
+                } else {
+                    alert('Login com Sucesso!')
+                    localStorage.setItem('usuarioLogado', '1')
+                    $(location).attr('href', '../paginas/homecaixa.html')
+                }
+
+
+
             } else {
-                alert('Usuário e/ou Senha Inválidosxxxxxxxxxxxxx!')
+                alert('Usuário e/ou Senha Inválidos!')
             }
-            
+
         });
-    } else {
-        alert("Usuário e/ou Senha Inválidos!")
     }
-    
 }
