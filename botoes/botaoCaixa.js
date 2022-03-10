@@ -2,10 +2,13 @@ $(document).ready(function(){
     
     var nomeUsuario = sessionStorage.getItem('nome')
     $("#usuario").val(nomeUsuario)
+    bloqueiaAbertura()
 
 })
 
 $("#abrirCaixa").click(function(){
+
+    sessionStorage.removeItem('caixa')
 
     var usuario = $("#usuario").val()
 
@@ -35,4 +38,16 @@ $("#abrirCaixa").click(function(){
         alert('Caixa Aberto!')
         $(location).attr('href', '../paginas/homecaixa.html')
     })
+
+    
 })
+
+function bloqueiaAbertura(){
+
+    var status = sessionStorage.getItem('caixa')
+
+    if(status === 'fechado'){
+        $("#abrirCaixa").prop('disabled', false)
+    }
+
+}
