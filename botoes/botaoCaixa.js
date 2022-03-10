@@ -21,6 +21,18 @@ $("#abrirCaixa").click(function(){
     var minutos = horaEntrada.getMinutes()
     let horaAtual = `${String(hora)}:${String(minutos)}`
 
+    var dados = {
+        data: dataAtual,
+        entrada: horaAtual,
+        usuario: usuario,
+        total: "",
+        saida: ""
+    }
 
-    console.log(horaAtual)
+
+    $.post("https://defmoteapi.herokuapp.com/caixa/", dados, function(){
+
+        alert('Caixa Aberto!')
+        $(location).attr('href', '../paginas/homecaixa.html')
+    })
 })
