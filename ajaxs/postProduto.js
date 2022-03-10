@@ -12,7 +12,8 @@ $("#salvarFormPostProduto").click(function(){
     var mes = horaEntrada.getMonth()
     var ano = horaEntrada.getFullYear()
 
-    let dataAtual = String(dia) + '/' + String(mes) + '/' + String(ano)
+    //let dataAtual = String(dia) + '/' + String(mes) + '/' + String(ano)
+    let dataAtual = `${String(dia)}/${String(mes)}}/${String(ano)}`
 
     var dados = {
             codigo: codigo,
