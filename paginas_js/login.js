@@ -28,24 +28,21 @@ async function autenticacao(usuario, senha){
 
     if(dados.length == 0){
         alert('Usuário e/ou Senha Inválidos!')
-    } else {
 
+    } else {
         dados.forEach(elemento => {
 
             if(usuario === elemento.nome && senha === elemento.senha){
 
                 if(elemento.status === 'Admin'){
                     alert('Login com Sucesso!')
-                    localStorage.setItem('usuarioLogado', '1')
+                    localStorage.setItem('usuarioLogado', 'admin')
                     $(location).attr('href', '../paginas/home.html')
                 } else {
                     alert('Login com Sucesso!')
-                    localStorage.setItem('usuarioLogado', '1')
-                    $(location).attr('href', '../paginas/homecaixa.html')
+                    localStorage.setItem('usuarioLogado', 'caixa')
+                    $(location).attr('href', '../paginas/caixa.html')
                 }
-
-
-
             } else {
                 alert('Usuário e/ou Senha Inválidos!')
             }

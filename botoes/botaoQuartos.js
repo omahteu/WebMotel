@@ -13,6 +13,10 @@ $(".tarja").click(function(){
         case 'Relatórios':
             window.open('../paginas/visualizar.html', '_blank');
             break
+
+        case 'Caixa':
+            window.open('../paginas/caixa.html', '_blank');
+            break
     
         default:
             break;
