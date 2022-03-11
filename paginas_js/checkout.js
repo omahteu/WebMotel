@@ -79,3 +79,18 @@ function informacaoes(){
 		})
 	})
 }
+
+function getValores(){
+
+	let numeroQuarto = $("#numquarto").text()
+	let valorQuarto = $("#valor-quarto").text()
+	let hora = $("#hour").text()
+	let minutos = $("#minute").text()
+	let segundo = $("#second")
+
+	// PEGAR AS INFOS DO QUARTO E PASSAR PARA OCUPAÇÕES
+	// FAZER A SOMA AUTOMATICA DO TEMPO, COM OS QUARTOS ENCERRADOS
+	// ENVIAR PARA A API
+	// RECEBER E EXIBIR NOS RELATÓRIOS
+	// EXIBIR NO FECHAMENTO
+}	
