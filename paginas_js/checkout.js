@@ -8,6 +8,13 @@ function informacaoes(){
 
 	$.get("https://defmoteapi.herokuapp.com/comanda/", function(retorno){
 
+		var adicionalQuarto = JSON.parse(localStorage.getItem('dadosQuarto'))
+
+		//let numero = adicionalQuarto[0].numero
+		//let valor = adicionalQuarto[0].valor
+		let tempo = adicionalQuarto[0].tempo
+		
+
 	    var prateleira = document.getElementById('itensComprados');
 		prateleira.innerHTML = '';
 
@@ -23,7 +30,6 @@ function informacaoes(){
 				var valor_unitario = dados[i].valor_unitario
 				//var datahora = dados[i].datahora
 				var valor_quarto = dados[i].valor_quarto
-
 
 				prateleira.innerHTML += '<tr>'+
 											'<td>'+
@@ -62,6 +68,7 @@ function informacaoes(){
 
 		$("#valorItens").text(sum)
 		$("#valorQuarto").text(valor_quarto)
+		$("#tempoPermanencia").text(tempo)
 		
 		var ttgeral = Number(valor_quarto) + Number(sum)
 
@@ -85,8 +92,8 @@ function getValores(){
 	let numeroQuarto = $("#numquarto").text()
 	let valorQuarto = $("#valor-quarto").text()
 	let hora = $("#hour").text()
-	let minutos = $("#minute").text()
-	let segundo = $("#second")
+	let minuto = $("#minute").text()
+	let tempo = `${hora}.${minuto}`
 
 	// PEGAR AS INFOS DO QUARTO E PASSAR PARA OCUPAÇÕES
 	// FAZER A SOMA AUTOMATICA DO TEMPO, COM OS QUARTOS ENCERRADOS
