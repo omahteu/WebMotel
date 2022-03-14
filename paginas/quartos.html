@@ -61,13 +61,27 @@
               id="obs"
               placeholder="Observações"
             />
+            <button
+            type="button"
+            class="btn btn-primary"
+            id="registrar"
+          >
+            Registrar
+          </button>
             <textarea id="muralObs" cols="29" rows="5" disabled></textarea>
+
           </form>
 
           <!-- Formulário Produtos -->
           <form id="produtos">
+            <input
+              type="text"
+              class="form-control"
+              id="codProduto"
+              placeholder="Código"
+            />
             <select class="form-control" id="cod">
-              <option hidden></option>
+              <option hidden>Produtos</option>
             </select>
             <input
               type="text"
@@ -388,6 +402,8 @@
     <script src="../armazem/armazemProdutos.js"></script>
     <!-- Armazenamento de Veículos -->
     <script src="../armazem/armazemVeiculos.js"></script>
+    <!-- Armazenamento de Observações -->
+    <script src="../armazem/armazemObservacoes.js"></script>
     <!-- Botão Manutenção -->
     <script type="module" src="../botoes/botaoManutencao.js"></script>
     <!-- Botão Locação -->
