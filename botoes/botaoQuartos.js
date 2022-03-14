@@ -3,7 +3,8 @@ $(".tarja").click(function(){
 
     switch (botao) {
         case 'Quartos':
-            window.open('../paginas/quartos.html', '_blank');
+            // window.open('../paginas/quartos.html');
+            $(location).attr('href', '../paginas/quartos.html')
             break;
         
         case 'Cadastros':
