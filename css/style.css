@@ -1283,3 +1283,7 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
   font-size: 22px;
   color: #000;
 }
+
+textarea {
+  resize: none;
+}
