@@ -50,7 +50,6 @@ async function autenticacao(usuario, senha){
             } else {
                 alert('Usuário e/ou Senha Inválidos!')
             }
-
         });
     }
 }
