@@ -1,12 +1,10 @@
 $(document).ready(function(){
-
-    window.location = "../index.html"
     
-    // var usuarioLogado = localStorage.getItem('usuarioLogado');
+    var usuarioLogado = localStorage.getItem('usuarioLogado');
 
-    // if (!usuarioLogado) {
-    //     window.location = "../index.html"
-    // }
+    if (!usuarioLogado) {
+        window.location = "../index.html"
+    }
 
 })
 
