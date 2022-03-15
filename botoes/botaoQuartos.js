@@ -17,6 +17,10 @@ $(".tarja").click(function(){
         case 'Caixa':
             $(location).attr('href', '../paginas/caixa.html')
             break
+        
+        case 'Configurações':
+            $(location).attr('href', '../paginas/configuracoes.html')
+            break
     
         default:
             break;

@@ -1,3 +1,5 @@
 $("#registrar").click(function(){
-    console.log('funcionando')
+    
+    var observacao = $("#obs").val()
+    $("#muralObs").text(`\n${observacao}`)
 })

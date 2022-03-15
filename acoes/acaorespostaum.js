@@ -13,12 +13,14 @@ export function resposta1(status){
 
     switch (status) {
         case 'Disponibilizar Quarto':
+            alert(`DESEJA DISPONIBILIZAR O QUARTO ${quarto}?`)
             pause()
             reset()
             setTimeout(function() {desfazer(quarto, flags[0], flags[1], flags[2])}, 1000)
             break
 
         case 'Iniciar Faxina':
+            alert(`DESEJA INICIAR FAXINA NO QUARTO ${quarto}?`)
             pause()
             reset()
             start()
@@ -26,6 +28,7 @@ export function resposta1(status){
             break
 
         case 'Iniciar Limpeza':
+            alert(`DESEJA INICIAR LIMPEZA NO QUARTO ${quarto}?`)
             reset()
             start()
             setTimeout(function() {limpeza(quarto, rota, flags[0], flags[1], flags[2])}, 1000)
@@ -35,7 +38,7 @@ export function resposta1(status){
             break
 
         case 'Encerrar':
-            if(confirm(`Deseja Encerrar o Quarto ${quarto}?`)){
+            if(confirm(`DESEJA ENCERRAR O QUARTO ${quarto}?`)){
                 pause()
                 setTimeout(function() {desfazer(quarto, flags[0], flags[1], flags[2])}, 1000)
                 sessionStorage.setItem('quarto', quarto)

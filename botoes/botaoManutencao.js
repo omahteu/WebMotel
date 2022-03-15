@@ -9,8 +9,7 @@ import { start4 } from '../contadores/contadorQuatro.js'
 $(".manutencao").click(function(){
     var quarto = $(this).attr('name')
 
-    var obs = prompt(`Deseja fazer alguma observação antes de iniciar a Manutenção no quarto ${quarto}?`)
-
+    var obs = prompt(`DESEJA FAZER ALGUMA OBSERVAÇÃO ANTES DE INICIAR A MANUTENÇÃO NO QUARTO ${quarto}?`)
 
     $("#muralObs").text(obs)
 

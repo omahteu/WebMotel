@@ -10,9 +10,8 @@ $(".locado").click(function(){
     var quarto = $(this).attr('name')
     var rota = $(this).attr('class')
 
-    if(confirm('É uma troca de suíte?') == true){
-        console.log('Troca de Suíte')
-    } else {
+    if(confirm('DESEJA INICIAR UM NOVO QUARTO?') == true){
+
         switch(quarto){
             case '1':
                 var flags = modos.slice(0, 3)
@@ -42,5 +41,7 @@ $(".locado").click(function(){
                 setTimeout(function() {index()}, 2000);
                 break
         }
+    } else {
+        console.log('Troca de Suíte')
     }
 })
