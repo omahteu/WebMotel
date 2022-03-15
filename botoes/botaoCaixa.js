@@ -3,6 +3,7 @@ $(document).ready(function(){
     var nomeUsuario = sessionStorage.getItem('nome')
     $("#usuario").val(nomeUsuario)
     bloqueiaAbertura()
+    validarUsoFundoCaixa()
 
 })
 
@@ -50,4 +51,17 @@ function bloqueiaAbertura(){
         $("#abrirCaixa").prop('disabled', false)
     }
 
+}
+
+function validarUsoFundoCaixa(){
+    
+    $("#usarFundoCaixa").click( function(){
+        var checado = $(this).is(':checked')
+        if(checado){
+            $("#valorFundoCaixa").css('display', 'block')
+                                 
+        } else {
+            $("#valorFundoCaixa").removeAttr('style')
+        }
+    })
 }
