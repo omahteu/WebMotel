@@ -10,7 +10,7 @@ $(".locado").click(function(){
     var quarto = $(this).attr('name')
     var rota = $(this).attr('class')
 
-    if(confirm('DESEJA INICIAR UM NOVO QUARTO?') == true){
+    if(confirm(`DESEJA INICIAR O QUARTO ${qusrto}?`) == true){
 
         switch(quarto){
             case '1':

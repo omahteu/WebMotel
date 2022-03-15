@@ -9,9 +9,15 @@ import { start4 } from '../contadores/contadorQuatro.js'
 $(".manutencao").click(function(){
     var quarto = $(this).attr('name')
 
-    var obs = prompt(`DESEJA FAZER ALGUMA OBSERVAÇÃO ANTES DE INICIAR A MANUTENÇÃO NO QUARTO ${quarto}?`)
+    var obs = prompt(`INFORME O MOTIVO DA MANUTENÇÃO!`)
 
-    $("#muralObs").text(obs)
+    let hatexto = ''
+
+    while(hatexto == 0 || hatexto == null){
+        var obs = prompt(`INFORME O MOTIVO DA MANUTENÇÃO!`)
+        hatexto = obs
+        $("#muralObs").text(obs)
+    }
 
     switch(quarto){
         case '1':
@@ -44,3 +50,8 @@ $(".manutencao").click(function(){
     }
 
 })
+
+function motivo(){
+    var sta = prompt('informe')
+    return sta
+}
