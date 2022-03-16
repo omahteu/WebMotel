@@ -1,10 +1,11 @@
 $(document).ready(function(){
-    $.get("https://defmoteapi.herokuapp.com/produtos/", function(resultado){
+    $.get("https://defmoteapi.herokuapp.com/produtos/", (resultado) => {
 
     resultado.forEach(function(item){
         $('#cod').append('<option>' + item.descricao + '</option>');
     });
     
+    codProduto
 
     $('#cod').change(function() {
         var option = $('#cod').find(":selected").index()
@@ -22,3 +23,5 @@ $(document).ready(function(){
     });
 })
 })
+
+function 
