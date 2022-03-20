@@ -902,6 +902,10 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
   background: #5cb85c;
   color: #fff;
   border: 2px solid #5cb85c;
+  margin-left: 131px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 10px;
 }
 .btn-success:hover, .btn-success:focus, .btn-success:active {
   background: #4cae4c !important;
@@ -940,6 +944,10 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
   background: #f0ad4e;
   color: #fff;
   border: 2px solid #f0ad4e;
+  margin-left: 111px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 10px;
 }
 .btn-warning:hover, .btn-warning:focus, .btn-warning:active {
   background: #eea236 !important;
@@ -991,11 +999,14 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
   -moz-appearance: none;
   appearance: none;
   box-shadow: none;
+  width: 95%;
+  margin-left: 8px;
   background: transparent;
   border: 2px solid rgba(0, 0, 0, 0.1);
   height: 54px;
   font-size: 18px;
   font-weight: 300;
+  margin-bottom: 2.5px;
   -webkit-border-radius: 7px;
   -moz-border-radius: 7px;
   -ms-border-radius: 7px;
@@ -1286,4 +1297,9 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
 
 textarea {
   resize: none;
+}
+
+.infos {
+  font-size: 20px;
+  font-weight: bold;
 }
