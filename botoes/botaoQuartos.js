@@ -15,12 +15,16 @@ $(".tarja").click(function(){
             break
 
         case 'Caixa':
-            $(location).attr('href', '../paginas/caixa.html')
+            // $(location).attr('href', '../paginas/caixa.html')
+            open('../paginas/caixa.html', '_blank')
             break
         
         case 'Configurações':
             $(location).attr('href', '../paginas/configuracoes.html')
             break
+        
+        case 'Configs':
+            $(location).attr('href', '../paginas/configuracoes.html')
     
         default:
             break;

@@ -18,7 +18,7 @@
       <!-- Cabeçalho -->
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="./home.html">Home</a></li>
+          <li class="breadcrumb-item"><a id="urlRelatoriosCaixa" href="#">Home</a></li>
           <li class="breadcrumb-item active" aria-current="page">Relatórios</li>
         </ol>
       </nav>
@@ -32,7 +32,7 @@
               aria-expanded="true"
               aria-controls="collapseCabecalho"
             >
-              <h1>Visualizações</h1>
+              <h1>Relatórios</h1>
             </button>
           </h5>
         </div>
@@ -230,7 +230,7 @@
       </div>
 
       <!-- Histórioco de Caixa -->
-      <div class="card">
+      <div class="card" id="cardHistoricoCaixa">
         <div class="card-header" id="headingHC">
           <h5 class="mb-0">
             <button
@@ -293,4 +293,6 @@
   <script type="module" src="../ajaxs/getRelatorios.js"></script>
   <!-- Bloqueador de Permissões -->
   <script src="../paginas_js/blockCaixa.js"></script>
+
+  <script src="../paginas_js/sitePath.js"></script>
 </html>

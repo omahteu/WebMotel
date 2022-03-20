@@ -4,6 +4,7 @@ $(document).ready(function(){
 
 })
 
+// verificar o historico da pagina para voltar para o mesmo lugar
 
 function bloqueioRelatorios(){
     let info = localStorage.getItem("usuarioLogado")
@@ -18,5 +19,6 @@ function bloqueioRelatorios(){
         $("#cardCadastroEmail").css('display', 'none')
         $("#cardCadastroCamareira").css('display', 'none')
         $("#cardCadastroPernoite").css('display', 'none')
+        $("#cardHistoricoCaixa").css('display', 'none')
     }
 }
