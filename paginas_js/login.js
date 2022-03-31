@@ -1,22 +1,7 @@
-$("#entrar").click(function(){
+$(location).ready(function(){
     
-    var nome = $("#nome")
-    var senha = $("#senha")
-
-    if(nome.val() == ''){
-        alert('Nome Inválido')
-        nome.focus()
-        return
-    }
-
-    if(senha.val() == ''){
-        alert('Senha Inválida')
-        senha.focus()
-        return
-    }
-
-    autenticacao(nome.val(), senha.val())
-    
+    loginEnter()
+    loginClick()
 })
 
 async function autenticacao(usuario, senha){
@@ -52,4 +37,55 @@ async function autenticacao(usuario, senha){
             }
         });
     }
+}
+
+function loginEnter(){
+
+    $("#entrar").keypress( (event) => {
+
+        var keycode = (event.keyCode ? event.keyCode : event.which)
+
+        if(keycode == '13'){
+
+            var nome = $("#nome")
+            var senha = $("#senha")
+        
+            if(nome.val() == ''){
+                alert('Nome Inválido')
+                nome.focus()
+                return
+            }
+        
+            if(senha.val() == ''){
+                alert('Senha Inválida')
+                senha.focus()
+                return
+            }
+        
+            autenticacao(nome.val(), senha.val())       
+        }
+    }) 
+}
+
+function loginClick(){
+
+    $("#entrar").click(function(){
+
+        var nome = $("#nome")
+        var senha = $("#senha")
+    
+        if(nome.val() == ''){
+            alert('Nome Inválido')
+            nome.focus()
+            return
+        }
+    
+        if(senha.val() == ''){
+            alert('Senha Inválida')
+            senha.focus()
+            return
+        }
+    
+        autenticacao(nome.val(), senha.val())
+    })
 }
