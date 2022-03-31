@@ -49,17 +49,27 @@ function registroProduto(){
 
 function removeProduto(operacao){
 
-	// Requisição DELETE
-	$.ajax({
-		url: "https://defmoteapi.herokuapp.com/comanda/" + operacao,
-		method: 'DELETE',
-		dataType: 'json',
-		success: function(data){
-			alert('Produto Excluído!')
-			mostraProduto();
-		}
-	})
+	motivo = prompt('Motivo da retirada do produto:')
+
+	if (motivo == null){
+		alert('Produto não excluido!\nÉ necessário o motivo da exclusão do produto!')
+	} else if (motivo.length == 0){
+		alert('Produto não excluido!\nÉ necessário o motivo da exclusão do produto!')
+	} else {
+		// Requisição DELETE
+		$.ajax({
+			url: "https://defmoteapi.herokuapp.com/comanda/" + operacao,
+			method: 'DELETE',
+			dataType: 'json',
+			success: function(data){
+				alert('Produto Excluído!')
+				mostraProduto();
+			}
+		})
+	}
 }
+
+// GUARDAR O MOTIVO NUMA VARIÁVEL E ADICIONAR A API
 
 function mostraProduto(){
 
