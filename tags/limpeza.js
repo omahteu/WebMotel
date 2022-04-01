@@ -14,7 +14,7 @@ export function limpeza(q, t, x, y, z) {
 
     // Botões Inferiores
     $("#" + x).css('visibility', 'visible')
-    $("#" + x).val('Disponibilizar Quarto')
+    $("#" + x).val('Encerrar Limpeza')
 
     if(t != 'btn limpeza'){
         $("#" + y).css('visibility', 'hidden')

@@ -2,7 +2,7 @@ export function aguardando(q, t, x, y, z) {
 
     // CSS
     $("#quarto" + q).css({
-        "background-color": "#DAA520",
+        "background-color": "#FFFFFF",
         "opacity": 0.5})
     
     $("[name=form_main" + q + "]").css({
@@ -34,6 +34,6 @@ export function aguardando(q, t, x, y, z) {
     $("#tipo").text('aguardando')
     $("#intervalo").text(`${x},${y},${z}`)
     $("#entrada").text(`${String(hora)}:${String(minutos)}h`)
-    $("#imagemQuarto" + q).css('border', '2px solid rgb(218, 165, 32)')
-    $("#imagemQuarto" + q).css('box-shadow', 'inset 0 0 1em rgb(218, 165, 32), 0 0 1em #000')
+    $("#imagemQuarto" + q).css('border', '2px solid rgb(240, 230, 165)')
+    $("#imagemQuarto" + q).css('box-shadow', 'inset 0 0 1em rgb(240, 230, 165), 0 0 1em #f0e6a5')
 }

@@ -1,6 +1,7 @@
 export var modos = ['x1', 'x2', 'x3', 'x4', 'x5', 'x6', 'x7', 'x8', 'x9', 'x10', 'x11', 'x12']
 export var quartoum = ['a1', 'a2', 'a3']
 export var quartodois = ['a4', 'a5', 'a6']
+export var nomeCamareiras = []
 
 export function dataAtual(){
     const data = new Date()
@@ -34,6 +35,22 @@ export function liviaExclui(url, identificador){
 			console.log('excluídos!')
 		}
 	})
+}
+
+export function listaCamareiras(camareira){
+
+    $.get("https://defmoteapi.herokuapp.com/camareiras/", function(resultado){
+
+        var dados = resultado.filter(nomes => nomes.nome == camareira)
+
+        
+
+        dados.forEach(element => {
+            $("#camareira").text(element.nome)
+        });
+
+    })
+
 }
 
 $("#limparFormPostQuarto").click(function(){
