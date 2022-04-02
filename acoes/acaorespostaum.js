@@ -60,8 +60,14 @@ export function resposta1(status){
 
                     listaCamareiras(camareira)
 
-                    var dad = sessionStorage.getItem('camareira')
-                    console.log(dad)
+                    var dad = sessionStorage.getItem('camareijra')
+                    
+                    if(dad != null){
+
+                        console.log('diferente')
+                    } else {
+                        console.log('nuloOOOOOU')
+                    }
 
                     
 
