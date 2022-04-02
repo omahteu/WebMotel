@@ -44,8 +44,7 @@ export function listaCamareiras(camareira){
         var dados = resultado.filter(nomes => nomes.nome == camareira)
 
         dados.forEach(element => {
-            $("#camareira").text(element.nome)
-            sessionStorage.setItem('camareira', element.nome)
+            sessionStorage.setItem('camareira'+element.nome, element.nome)
         });
 
     })

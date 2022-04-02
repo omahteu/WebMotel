@@ -60,21 +60,23 @@ export function resposta1(status){
 
                     listaCamareiras(camareira)
 
-                    var dad = sessionStorage.getItem('camareijra')
+                    var dad = sessionStorage.getItem(`camareira${camareira}`)
+
                     
                     if(dad != null){
 
-                        console.log('diferente')
+                        alert('camareira correta')
+                        pause()
+                        reset()
+                        setTimeout(function() {desfazer(quarto, flags[0], flags[1], flags[2])}, 1000)
+                        break
                     } else {
-                        console.log('nuloOOOOOU')
+                        alert('Camareira Incorreta!')
                     }
 
                     
 
-                    pause()
-                    reset()
-                    setTimeout(function() {desfazer(quarto, flags[0], flags[1], flags[2])}, 1000)
-                    break
+ 
 
                 } else {
                     console.log('cancelado')
