@@ -5,6 +5,7 @@ import { limpeza } from "../tags/limpeza.js"
 import { pause, reset, start } from '../contadores/contadorUm.js'
 import { listaCamareiras } from "../boxes/box.js"
 import { nomeCamareiras } from "../boxes/box.js"
+import { espera } from "../boxes/box.js"
 
 var rota = 'rota'
 
@@ -50,18 +51,19 @@ export function resposta1(status){
             break
         
         case 'Encerrar Limpeza':
+            
+
             if(confirm('DESEJA DISPONIBILIZAR O QUARTO ' + quarto + ' ?') == true){
                 var camareira = prompt('Nome da Camareira:')
 
-                listaCamareiras(camareira)
-
-                console.log('ajustando')
-
-                var nome_camareira = $("#camareira").text()
-                
                 if(camareira != null){
 
-                    console.log(nome_camareira)
+                    listaCamareiras(camareira)
+
+                    var dad = sessionStorage.getItem('camareira')
+                    console.log(dad)
+
+                    
 
                     pause()
                     reset()

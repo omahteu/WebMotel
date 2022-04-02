@@ -43,14 +43,23 @@ export function listaCamareiras(camareira){
 
         var dados = resultado.filter(nomes => nomes.nome == camareira)
 
-        
-
         dados.forEach(element => {
             $("#camareira").text(element.nome)
+            sessionStorage.setItem('camareira', element.nome)
         });
 
     })
 
+}
+
+export function espera(){
+    console.log('esperando')
+}
+
+export function ret(){
+    var nome_camareira = $("#camareira").text()
+
+    return nome_camareira
 }
 
 $("#limparFormPostQuarto").click(function(){
