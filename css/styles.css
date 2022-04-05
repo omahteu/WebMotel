@@ -3348,6 +3348,16 @@ select:focus {
 .single-form .form-input.form textarea,
 .single-form .form-input.form input {
   padding: 0 15px;
+  width: 340px;
+}
+
+@media (max-width: 767px) {
+  .single-form .form-input.form input {
+    padding: 0 15px;
+    width: 340px;
+    margin-top: 5px;
+  }
+
 }
 
 /*===== Form Default Style =====*/
